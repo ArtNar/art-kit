@@ -1,9 +1,7 @@
 ```jsx
 
 <div>
-    <Spin
-        visible={ true }
-    />
+    <Spin/>
 </div>
 
 ```

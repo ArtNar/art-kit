@@ -5,9 +5,9 @@ module.exports = {
     resolve: {
         modules: [
             'node_modules',
-            path.join(process.cwd(), 'node_modules')
+            path.resolve('src'),
         ],
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx'],
     },
     module: {
         rules: [
@@ -20,24 +20,23 @@ module.exports = {
                 test: /\.(eot|svg|otf|ttf|woff|woff2|png)$/,
                 use: 'file-loader',
             },
-            // {
-            //     test: /\.(scss|css)$/,
-            //     use: [
-            //         MiniCssExtractPlugin.loader,
-            //         'css-loader',
-            //         'sass-loader',
-            //         'resolve-url-loader',
-            //     ],
-            // },
-        ]
+            {
+                test: /\.(css|scss)$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader',
+                ],
+            },
+        ],
     },
     plugins: [
         new webpack.ProvidePlugin({
-            React: 'react'
+            React: 'react',
         }),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-            'process.HOT_LOADER': process.env.HOT_LOADER
-        })
-    ]
+            'process.HOT_LOADER': process.env.HOT_LOADER,
+        }),
+    ],
 };

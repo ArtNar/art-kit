@@ -1,5 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import _cn from 'utils/cn';
+import cx from 'classnames';
+import './style.scss';
+
+const cn = _cn('spin');
 
 const Spin = ({
     size,
@@ -10,20 +15,9 @@ const Spin = ({
 }) => (
     <span
         id={id}
-        className={className}
-        styledProps={{
-            size,
-            visible,
-            color,
-        }}
+        className={cx(cn({ size, color, visible }), className)}
     >
-        <span
-            styledProps={{
-                size,
-                visible,
-                color,
-            }}
-        />
+        <span />
     </span>
 );
 
