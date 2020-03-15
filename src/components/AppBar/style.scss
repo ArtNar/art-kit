@@ -1,0 +1,37 @@
+@import 'theme/variables';
+
+.app-bar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: $z-index-app-bar;
+    flex-shrink: 0;
+    background-color: $color-background;
+    min-height: 50px;
+
+    &_position_fixed {
+        position: fixed;
+        top: 0;
+        left: auto;
+        right: 0;
+    }
+
+    &_position_absolute {
+        position: absolute;
+        top: 0;
+        left: auto;
+        right: 0;
+    }
+
+    &_position_sticky {
+        position: sticky;
+        top: 0;
+        left: auto;
+        right: 0;
+    }
+
+    &_position_static {
+        position: static;
+    }
+}
