@@ -1,3 +1,5 @@
+@import 'theme/variables';
+
 @keyframes spin {
     0%   { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -5,9 +7,38 @@
 
 .spin {
     display: none;
-    animation: spin 3s linear infinite;
+    animation: spin 1s ease infinite;
 
-    & span {
-        display: none;
+    border: $border-size-m solid $color-border;
+    border-right-color: transparent;
+    border-radius: 50%;
+
+    &_visible {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    &_color_white {
+        border-color: $color-border-on-color;
+    }
+
+    &_size_s {
+        width: $font-size-s;
+        height: $font-size-s;
+    }
+
+    &_size_m {
+        width: $font-size-m;
+        height: $font-size-m;
+    }
+
+    &_size_l {
+        width: $font-size-l;
+        height: $font-size-l;
+    }
+
+    &_size_xl {
+        width: $font-size-xl;
+        height: $font-size-xl;
     }
 }

@@ -1,0 +1,17 @@
+@import 'theme/variables';
+
+.paper {
+    background-color: $color-background;
+    color: $color-content;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+    padding: $padding;
+
+    &_square {
+        border-radius: 0;
+    }
+
+    &_fluid {
+        width: 100%;
+    }
+}

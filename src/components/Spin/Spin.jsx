@@ -8,7 +8,7 @@ const cn = _cn('spin');
 
 const Spin = ({
     size,
-    color = 'black',
+    color,
     visible,
     className,
     id,
@@ -16,9 +16,7 @@ const Spin = ({
     <span
         id={id}
         className={cx(cn({ size, color, visible }), className)}
-    >
-        <span />
-    </span>
+    />
 );
 
 Spin.propTypes = {
