@@ -1,0 +1,37 @@
+@import 'theme/variables';
+
+.badge {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+    flex-shrink: 0;
+
+    &__value {
+        position: absolute;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        height: 20px;
+        min-width: 20px;
+        padding: 0 2px;
+        border-radius: 10px;
+        transition: transform 300ms ease-in-out 0s;
+        font-size: $font-size-xxs;
+        background-color: $color-control-background-primary;
+        color: $color-control-content-on-color;
+
+        &_vertical_top,
+        &_horizontal_right {
+            top: 0;
+            right: 0;
+            transform: scale(1) translate(50%, -50%);
+            transform-origin: 100% 0%;
+        }
+
+        &_invisible {
+            transform: scale(0) translate(50%, -50%);
+        }
+    }
+}

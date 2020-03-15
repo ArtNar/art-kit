@@ -1,0 +1,24 @@
+@import 'theme/variables';
+
+.avatar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    user-select: none;
+    background-color: $color-control-background-primary;
+    color: $color-content-on-color;
+
+    & img {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        object-fit: cover;
+        color: transparent;
+        text-indent: 10000;
+    }
+}
