@@ -46,8 +46,6 @@ const Button = forwardRef(({
     const isButton = tag !== 'span';
 
     const [pressed, setPressed] = useState();
-    const [focused, setFocused] = useState();
-    const [hovered, setHovered] = useState();
 
     const handleClick = (event) => {
         if (onClick) {
@@ -60,36 +58,24 @@ const Button = forwardRef(({
             return;
         }
 
-        setFocused(true);
-
         if (onFocus) {
             onFocus(event);
         }
     };
 
     const handleBlur = (event) => {
-        setFocused(false);
-
         if (onBlur) {
             onBlur(event);
         }
     };
 
     const handleMouseEnter = (event) => {
-        if (!disabled) {
-            setHovered(true);
-        }
-
         if (onMouseEnter) {
             onMouseEnter(event);
         }
     };
 
     const handleMouseLeave = (event) => {
-        if (!disabled) {
-            setHovered(false);
-        }
-
         if (onMouseLeave) {
             onMouseLeave(event);
         }
@@ -220,9 +206,6 @@ const Button = forwardRef(({
         shape,
         size,
         fluid,
-        focused,
-        hovered,
-        pressed,
         checked,
         padded,
         color,
