@@ -1,0 +1,113 @@
+@import 'theme/variables';
+
+.button {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+
+    display: inline-flex;
+    align-items: center;
+
+    padding: 0;
+    outline: 0;
+    text-align: center;
+    white-space: nowrap;
+
+    transition-duration: 200ms;
+    transition-property: background-color, border-color, color, width;
+    transition-timing-function: ease;
+    border-radius: $border-radius;
+    border: $border-size-s solid;
+
+    &_disabled {
+        cursor: default;
+        pointer-events: none;
+    }
+
+    &_fluid {
+        width: 100%;
+    }
+
+    &_size_s {
+        height: 36px;
+        padding: 0 $padding;
+        font-size: $font-size-s;
+    }
+
+    &_size_m {
+        height: 42px;
+        padding: 0 $padding;
+        font-size: $font-size-m;
+    }
+
+    &_size_l {
+        height: 48px;
+        padding: 0 $padding;
+        font-size: $font-size-l;
+    }
+
+    &_size_xl {
+        height: 54px;
+        padding: 0 $padding;
+        font-size: $font-size-xl;
+    }
+
+    &_view_default {
+        background-color: $color-control-background;
+        border-color: $color-control-border;
+        color: $color-control-content;
+
+        &:hover {
+            border-color: $color-control-border-hovered;
+        }
+    }
+
+    &_view_primary {
+        background-color: $color-control-background-primary;
+        border-color: transparent;
+        color: $color-control-content-on-color;
+
+        &:hover {
+            background-color: $color-control-background-primary-hovered;
+        }
+    }
+
+    &_view_danger {
+        background-color: $color-control-background-error;
+        border-color: $color-control-background-error;
+        color: $color-control-content-on-color;
+
+        &:hover {
+            background-color: $color-control-background-error-hovered;
+        }
+    }
+
+    &_view_success {
+        background-color: $color-control-background-success;
+        border-color: $color-control-background-success;
+        color: $color-control-content-on-color;
+
+        &:hover {
+            background-color: $color-control-background-success-hovered;
+        }
+    }
+
+    &_view_link {
+        height: unset;
+        border: 0;
+        padding: 0;
+        color: $color-control-content-primary;
+    }
+
+    &__left-addons {
+        padding-right: $padding / 2;
+    }
+
+    &__right-addons {
+        padding-left: $padding / 2;
+    }
+
+    &__icon {
+        padding-right: $padding / 2;
+    }
+}

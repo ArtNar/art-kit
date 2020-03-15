@@ -6,13 +6,20 @@ $color-content-on-color-minor: #acadae;
 
 $color-background: #f7f7f7;
 
-$color-background-control: #fff;
-$color-background-control-primary: #2387fb;
-$color-background-control-success: #00c853;
-$color-background-control-error: #f44336;
+$color-control-content: #000;
+$color-control-content-on-color: #fff;
+$color-control-content-primary: #2387fb;
+
+$color-control-background: #fff;
+$color-control-background-primary: #2387fb;
+$color-control-background-primary-hovered: lighten($color-control-background-primary, 3%);
+$color-control-background-success: #00c853;
+$color-control-background-success-hovered: lighten($color-control-background-success, 3%);
+$color-control-background-error: #f44336;
+$color-control-background-error-hovered: lighten($color-control-background-error, 3%);
+
+$color-control-border: #dadada;
+$color-control-border-hovered: #2387fb;
 
 $color-border: #000;
 $color-border-on-color: #fff;
-
-$color-border-control: #000;
-$color-border-control-hovered: #2387fb;

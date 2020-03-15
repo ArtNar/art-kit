@@ -1,5 +1,5 @@
+Fluid (width: 100%):
 ```jsx
-
 <Paper
     fluid={true}
 >
@@ -8,7 +8,10 @@
     Ut enim ad minim veniam, quis nostrud exercitation ullamco
     laboris nisi ut aliquip ex ea commodo consequat.
 </Paper>
+```
 
+Square:
+```jsx
 <Paper
     square={true}
 >
@@ -17,5 +20,4 @@
     Ut enim ad minim veniam, quis nostrud exercitation ullamco
     laboris nisi ut aliquip ex ea commodo consequat.
 </Paper>
-
 ```

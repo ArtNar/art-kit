@@ -1,13 +1,8 @@
-```jsx
-
-<div>
-    {['s', 'm', 'l', 'xl'].map(size => (
-        <div>
-            <Spin
-                size={size}
-            />
-        </div>
-    ))}
-</div>
-
+Sizes:
+```jsx padded
+['s', 'm', 'l', 'xl'].map(size => (
+    <Spin
+        size={size}
+    />
+))
 ```
