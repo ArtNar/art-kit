@@ -1,0 +1,14 @@
+@import 'theme/variables';
+
+.container {
+    display: flex;
+    padding: $padding;
+
+    &_fluid {
+        flex: 1;
+    }
+
+    &_disableGutters {
+        padding: 0;
+    }
+}
