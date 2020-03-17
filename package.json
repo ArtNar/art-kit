@@ -41,7 +41,9 @@
   },
   "dependencies": {
     "@bem-react/classname": "^1.5.8",
+    "@popperjs/core": "^2.1.1",
     "prop-types": "^15.7.2",
-    "react-day-picker": "^7.4.0"
+    "react-day-picker": "^7.4.0",
+    "react-transition-group": "^4.3.0"
   }
 }

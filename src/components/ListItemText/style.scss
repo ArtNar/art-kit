@@ -1,0 +1,10 @@
+@import 'theme/variables';
+
+.list-item-text {
+    flex: 1 1 auto;
+    margin: $padding / 4 0;
+
+    &_inset {
+        padding-left: $padding;
+    }
+}

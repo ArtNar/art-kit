@@ -1,0 +1,10 @@
+@import 'theme/variables';
+
+.popper {
+    opacity: 0;
+    transition: opacity 200ms ease-out 0s;
+
+    &_transitionState_entered {
+        opacity: 1;
+    }
+}

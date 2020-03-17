@@ -5,6 +5,7 @@ $color-content-on-color: #fff;
 $color-content-on-color-minor: #acadae;
 
 $color-background: #f7f7f7;
+$color-background-darker: darken($color-background, 5%);
 
 $color-control-content: #000;
 $color-control-content-minor: lighten($color-control-content, 30%);

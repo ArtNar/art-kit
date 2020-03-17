@@ -1,0 +1,28 @@
+@import 'theme/variables';
+
+.list-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+    padding: $padding 0;
+
+    &_disabled {
+        opacity: $opacity-disabled;
+    }
+
+    &_button {
+        cursor: pointer;
+
+        &:hover {
+            color: $color-background-darker;
+        }
+    }
+
+    &_selected {
+        color: $color-background-darker;
+    }
+}
