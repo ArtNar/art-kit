@@ -7,6 +7,7 @@ $color-content-on-color-minor: #acadae;
 $color-background: #f7f7f7;
 
 $color-control-content: #000;
+$color-control-content-minor: lighten($color-control-content, 30%);
 $color-control-content-on-color: #fff;
 $color-control-content-primary: #2387fb;
 

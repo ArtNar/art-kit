@@ -45,20 +45,18 @@ const Alert = React.forwardRef(({
             {...rest}
         >
             <div className={cn('content')}>
-                <div
-                    className={cn('icon')}
-                >
-                    {icon !== false ? (
-                        <div>
-                            {icon || defaultIconMapping[type]}
-                        </div>
-                    ) : null}
-                </div>
+                {!action && (
+                    <div className={cn('icon')}>
+                        {icon !== false ? (
+                            <div>
+                                {icon || defaultIconMapping[type]}
+                            </div>
+                        ) : null}
+                    </div>
+                )}
                 <div>{children}</div>
-                {action == null && onClose ? (
-                    <div
-                        className={cn('action')}
-                    >
+                {!action && onClose ? (
+                    <div className={cn('action')}>
                         <Button
                             view="link"
                             color="white"
@@ -69,15 +67,11 @@ const Alert = React.forwardRef(({
                     </div>
                 ) : null}
             </div>
-            {action != null
-                ? (
-                    <div
-                        className={cn('actions')}
-                    >
-                        {action}
-                    </div>
-                )
-                : null}
+            {action && (
+                <div className={cn('actions')}>
+                    {action}
+                </div>
+            )}
         </Paper>
     </div>
 ));

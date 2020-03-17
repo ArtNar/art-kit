@@ -1,0 +1,29 @@
+Input:
+```jsx
+<Input
+    name="email"
+    type="email"
+    placeholder="Email"
+    fluid
+/>
+```
+Input - error:
+```jsx
+<Input
+    name="email"
+    type="email"
+    placeholder="Email"
+    error={true}
+    fluid
+/>
+```
+Input - disabled:
+```jsx
+<Input
+    name="email"
+    type="email"
+    placeholder="Email"
+    disabled
+    fluid
+/>
+```

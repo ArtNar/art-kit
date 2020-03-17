@@ -1,0 +1,53 @@
+@import 'theme/variables';
+
+.input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $padding;
+
+    &__inner {
+        position: relative;
+        display: inline-flex;
+        box-sizing: border-box;
+        align-items: center;
+        transition-duration: 200ms;
+        transition-property: border-color, color;
+        transition-timing-function: ease-in-out;
+
+        border: $border-size-s solid $color-control-border;
+        border-radius: $border-radius;
+
+        &_focused {
+            border-color: $color-control-border-hovered;
+        }
+
+        &_error {
+            border-color: $color-control-background-error;
+        }
+
+        &_fluid {
+            width: 100%;
+        }
+
+        &_disabled {
+            opacity: $opacity-disabled;
+        }
+    }
+
+    &__input {
+        color: currentColor;
+        outline: 0;
+        font-size: $font-size-m;
+        width: 100%;
+        border: 0;
+        margin: 0;
+        display: block;
+        padding: $padding;
+        background: none;
+        box-sizing: content-box;
+
+        &_readOnly {
+            cursor: pointer;
+        }
+    }
+}

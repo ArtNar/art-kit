@@ -1,0 +1,13 @@
+@import 'theme/variables';
+
+.input-helper-text {
+    text-align: left;
+    margin: 0;
+    margin-top: $padding;
+    font-size: $font-size-s;
+    color: $color-control-content-minor;
+
+    &_error {
+        color: $color-control-background-error;
+    }
+}
