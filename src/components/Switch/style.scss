@@ -1,0 +1,27 @@
+@import 'theme/variables';
+
+.switch {
+    display: inline-flex;
+    width: 58px;
+    height: 38px;
+    overflow: hidden;
+    padding: $padding;
+    box-sizing: border-box;
+    position: relative;
+    flex-shrink: 0;
+    vertical-align: middle;
+
+    &__thumb {
+        background-color: currentColor;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+    }
+
+    &__track {
+        height: 100%;
+        width: 100%;
+        border-radius: $border-radius;
+        background-color: $color-border;
+    }
+}

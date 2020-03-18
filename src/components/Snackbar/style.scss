@@ -1,0 +1,25 @@
+@import 'theme/variables';
+
+.snackbar {
+    z-index: $z-index-snackbar;
+    position: fixed;
+    display: flex;
+    left: $padding / 2;
+    right: $padding / 2;
+    justify-content: center;
+    align-items: center;
+
+    &_vertical_bottom {
+        bottom: $padding / 2;
+    }
+
+    &_horizontal_left {
+        justify-content: flex-start;
+    }
+
+    &_horizontal_center {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+    }
+}

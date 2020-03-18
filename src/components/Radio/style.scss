@@ -1,0 +1,11 @@
+@import 'theme/variables';
+
+.radio {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &__label {
+        padding: 0 $padding / 2;
+    }
+}

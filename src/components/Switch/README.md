@@ -1,0 +1,6 @@
+Switch:
+```jsx
+
+<Switch />
+
+```
