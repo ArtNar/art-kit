@@ -17,6 +17,12 @@ module.exports = {
         ],
         extensions: ['.js', '.jsx'],
     },
+    optimization: {
+        // We no not want to minimize npm code.
+        minimize: false,
+        usedExports: true,
+        sideEffects: true,
+    },
     module: {
         rules: [
             {
