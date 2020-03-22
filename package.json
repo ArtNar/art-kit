@@ -1,5 +1,5 @@
 {
-  "name": "art-kit",
+  "name": "artn-kit",
   "version": "1.0.0",
   "description": "ui-kit",
   "main": "index.js",
@@ -10,6 +10,11 @@
   "keywords": [
     "ui-kit"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ArtNar/art-kit.git"
+  },
+  "homepage": "https://github.com/ArtNar/art-kit#readme",
   "author": "Artem Narozhniy",
   "license": "UNLICENSED",
   "devDependencies": {
