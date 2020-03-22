@@ -1,7 +1,15 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const srcPath = '../src/';
+
 module.exports = {
+    entry: {
+        main: path.join(__dirname, srcPath, 'components/index.js'),
+    },
+    output: {
+        path: path.join(__dirname, '../dist'),
+    },
     resolve: {
         modules: [
             'node_modules',
