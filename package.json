@@ -6,7 +6,11 @@
   "scripts": {
     "start": "styleguidist server",
     "build:demo": "styleguidist build",
-    "build": "webpack --config ./webpack/webpack.config.prod.js"
+    "build": "webpack --config ./webpack/webpack.config.prod.js",
+    "release": "npm run build && cp package.json ./lib/ && npm publish ./lib",
+    "release-patch": "npm version patch -m 'chore(*): patch version'",
+    "release-minor": "npm version minor -m 'chore(*): minor version'",
+    "release-major": "npm version major -m 'chore(*): major version'"
   },
   "keywords": [
     "ui-kit"
