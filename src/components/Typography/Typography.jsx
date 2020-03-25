@@ -2,7 +2,6 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import _cn from 'utils/cn';
 import cx from 'classnames';
-import './style.scss';
 
 const cn = _cn('typography');
 

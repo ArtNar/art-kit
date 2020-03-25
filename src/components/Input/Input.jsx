@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _cn from 'utils/cn';
 import cx from 'classnames';
-import './style.scss';
 
 import { InputHelperText } from '../InputHelperText';
 import { InputLabel } from '../InputLabel';

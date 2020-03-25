@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import _cn from 'utils/cn';
 import cx from 'classnames';
 import { Paper } from '../Paper';
-import './style.scss';
 
 const cn = _cn('app-bar');
 

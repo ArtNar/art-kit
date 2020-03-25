@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import _cn from 'utils/cn';
 import cx from 'classnames';
-import './style.scss';
 
 import CheckBoxIcon from '../Icons/CheckBox';
 import CheckBoxOutlineBlankIcon from '../Icons/CheckBoxOutlineBlank';

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _cn from 'utils/cn';
-import './style.scss';
 
 const cn = _cn('input-label');
 

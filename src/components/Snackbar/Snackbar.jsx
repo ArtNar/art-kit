@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _cn from 'utils/cn';
 import cx from 'classnames';
-import './style.scss';
 
 import { Transition } from 'react-transition-group';
 import { ClickAwayListener } from '../ClickAwayListener';

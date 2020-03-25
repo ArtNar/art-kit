@@ -4,7 +4,6 @@ import { Transition } from 'react-transition-group';
 import _cn from 'utils/cn';
 import cx from 'classnames';
 import { Portal } from '../Portal';
-import './style.scss';
 
 const cn = _cn('modal');
 

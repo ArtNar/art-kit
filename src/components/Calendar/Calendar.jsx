@@ -5,7 +5,6 @@ import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 import _cn from 'utils/cn';
 import cx from 'classnames';
-import './style.scss';
 
 const cn = _cn('calendar');
 

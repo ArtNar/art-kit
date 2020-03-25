@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import _cn from 'utils/cn';
 import cx from 'classnames';
-import './style.scss';
 
 import { Input } from '../Input';
 import { Calendar } from '../Calendar';

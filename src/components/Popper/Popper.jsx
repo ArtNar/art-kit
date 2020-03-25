@@ -7,8 +7,6 @@ import _cn from 'utils/cn';
 import { Portal } from '../Portal';
 import { Paper } from '../Paper';
 
-import './style.scss';
-
 const cn = _cn('popper');
 
 function flipPlacement(placement) {

@@ -5,7 +5,6 @@ import _cn from 'utils/cn';
 import cx from 'classnames';
 import { Spin } from '../Spin';
 import keyboardCode from '../lib/keyboard-code';
-import './style.scss';
 
 const cn = _cn('button');
 

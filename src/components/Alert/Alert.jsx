@@ -11,7 +11,6 @@ import {
     ErrorOutlineIcon,
     InfoOutlinedIcon,
 } from '../Icons';
-import './style.scss';
 
 const cn = _cn('alert');
 

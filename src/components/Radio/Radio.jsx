@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import _cn from 'utils/cn';
 import cx from 'classnames';
 import { SwitchBase } from '../SwitchBase';
-import './style.scss';
 
 import RadioButtonUncheckedIcon from '../Icons/RadioButtonUnchecked';
 import RadioButtonCheckedIcon from '../Icons/RadioButtonChecked';
