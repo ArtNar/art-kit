@@ -1,11 +1,13 @@
 Types:
 ```jsx padded
 ['error', 'info', 'success', 'warning'].map(type => (
-    <Alert
-        type={type}
-    >
-        {type}
-    </Alert>
+    <div style={{padding: '10px 0'}}>
+        <Alert
+            type={type}
+        >
+            {type}
+        </Alert>
+    </div>
 ))
 ```
 
