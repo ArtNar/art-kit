@@ -1,3 +1,7 @@
+```jsx static
+import { Typography } from 'artn-kit/components';
+```
+
 Typography:
 ```jsx
 

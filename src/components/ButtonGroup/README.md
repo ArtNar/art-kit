@@ -1,3 +1,7 @@
+```jsx static
+import { ButtonGroup } from 'artn-kit/components';
+```
+
 ButtonGroup:
 ```jsx
 import { Button } from '../Button';

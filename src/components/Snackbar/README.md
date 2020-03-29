@@ -1,3 +1,7 @@
+```jsx static
+import { Snackbar } from 'artn-kit/components';
+```
+
 Snackbar:
 ```jsx
 import { useState } from 'react';

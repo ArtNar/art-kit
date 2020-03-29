@@ -1,4 +1,10 @@
+```jsx static
+import { Container } from 'artn-kit/components';
+```
+
 Container:
 ```jsx
-<Container/>
+<Container>
+    I'm Container
+</Container>
 ```

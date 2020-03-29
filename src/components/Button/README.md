@@ -1,7 +1,12 @@
+```jsx static
+import { Button } from 'artn-kit/components';
+```
+
 Sizes:
 ```jsx padded
 ['s', 'm', 'l', 'xl'].map(size => (
     <Button
+        key={size}
         text={`button ${size}`}
         size={size}
     />
@@ -11,6 +16,7 @@ Colors:
 ```jsx padded
 ['default', 'primary', 'success', 'danger'].map(view => (
     <Button
+        key={view}
         text={view}
         view={view}
     />

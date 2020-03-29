@@ -1,3 +1,7 @@
+```jsx static
+import { Radio } from 'artn-kit/components';
+```
+
 Radio:
 ```jsx
 import { useState } from 'react';

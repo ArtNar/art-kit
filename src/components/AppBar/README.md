@@ -1,3 +1,7 @@
+```jsx static
+import { AppBar } from 'artn-kit/components';
+```
+
 AppBar:
 ```jsx
 import { useState } from 'react';

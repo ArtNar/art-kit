@@ -14,4 +14,11 @@
     &_fluid {
         width: 100%;
     }
+
+    &_variant_outlined {
+        background-color: transparent;
+        box-shadow: none;
+        border: $border-size-s solid;
+        border-color: $color-control-border;
+    }
 }

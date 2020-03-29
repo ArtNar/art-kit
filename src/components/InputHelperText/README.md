@@ -1,4 +1,0 @@
-InputHelperText:
-```jsx
-<InputHelperText />
-```

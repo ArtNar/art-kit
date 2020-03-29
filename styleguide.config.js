@@ -1,10 +1,9 @@
 const path = require('path');
 
 module.exports = {
-    components: 'src/components/**/[A-Z]*.jsx',
     sections: [
         {
-            name: 'Others',
+            name: 'Components',
             components: '**/src/components/**/*.jsx',
             ignore: '**/src/components/Icons/**/*.jsx',
         },
@@ -13,4 +12,7 @@ module.exports = {
     require: [
         path.join(__dirname, './src/index.scss'),
     ],
+    propsParser(filePath, source, resolver, handlers) {
+        return require('react-docgen').parse(source, resolver, handlers);
+    },
 };

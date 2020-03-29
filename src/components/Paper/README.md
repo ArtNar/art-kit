@@ -1,3 +1,7 @@
+```jsx static
+import { Paper } from 'artn-kit/components';
+```
+
 Fluid (width: 100%):
 ```jsx
 <Paper

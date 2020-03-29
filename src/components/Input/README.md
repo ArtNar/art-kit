@@ -1,3 +1,7 @@
+```jsx static
+import { Input } from 'artn-kit/components';
+```
+
 Input:
 ```jsx
 <Input
@@ -13,7 +17,7 @@ Input - error:
     name="email"
     type="email"
     placeholder="Email"
-    error={true}
+    error="some error"
     fluid
 />
 ```

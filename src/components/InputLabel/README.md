@@ -1,4 +1,0 @@
-InputLabel:
-```jsx
-<InputLabel />
-```

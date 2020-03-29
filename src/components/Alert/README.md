@@ -1,8 +1,13 @@
+```jsx static
+import { Alert } from 'artn-kit/components';
+```
+
 Types:
 ```jsx padded
 ['error', 'info', 'success', 'warning'].map(type => (
-    <div style={{padding: '10px 0'}}>
+    <div style={{padding: '5px 0'}}>
         <Alert
+            key={type}
             type={type}
         >
             {type}
@@ -28,15 +33,16 @@ Action:
 import { Button } from '../Button';
 
 <Alert
-    variant="outlined"
     action={(
         <>
             <Button
                 text="ok"
+                onClick={() => alert('ok')}
             />
             <Button
                 text="close"
                 view="danger"
+                onClick={() => alert('close')}
             />
         </>
     )}
@@ -53,8 +59,7 @@ onClose:
 import { Button } from '../Button';
 
 <Alert
-    variant="outlined"
-    onClose={() => console.log('alert closed')}
+    onClose={() => alert('alert closed')}
 >
     Lorem ipsum dolor sit amet, consectetur adipiscing elit,
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

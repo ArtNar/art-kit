@@ -1,3 +1,7 @@
+```jsx static
+import { Popper } from 'artn-kit/components';
+```
+
 Popper:
 ```jsx
 import { useState } from 'react';

@@ -1,4 +1,8 @@
-Avatar:
+```jsx static
+import { Badge } from 'artn-kit/components';
+```
+
+Badge:
 ```jsx
 import { MailIcon } from "../Icons";
 

@@ -1,3 +1,7 @@
+```jsx static
+import { List } from 'artn-kit/components';
+```
+
 List:
 ```jsx
 import { ListItem } from '../ListItem';

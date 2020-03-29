@@ -1,3 +1,7 @@
+```jsx static
+import { InputDate } from 'artn-kit/components';
+```
+
 InputDate:
 ```jsx
 import { useState } from 'react';
