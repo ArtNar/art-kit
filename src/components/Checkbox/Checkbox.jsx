@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import _cn from 'utils/cn';
+import _cn from '../../utils/cn';
 import cx from 'classnames';
 
 import CheckBoxIcon from '../Icons/CheckBox';

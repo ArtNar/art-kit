@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import _cn from 'utils/cn';
+import _cn from '../../utils/cn';
 import cx from 'classnames';
 
 const cn = _cn('input-helper-text');

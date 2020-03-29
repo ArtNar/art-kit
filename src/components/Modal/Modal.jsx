@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
-import _cn from 'utils/cn';
+import _cn from '../../utils/cn';
 import cx from 'classnames';
 import { Portal } from '../Portal';
 

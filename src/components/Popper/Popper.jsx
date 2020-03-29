@@ -2,7 +2,7 @@ import React, { forwardRef, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { createPopper } from '@popperjs/core';
 import { Transition } from 'react-transition-group';
-import _cn from 'utils/cn';
+import _cn from '../../utils/cn';
 
 import { Portal } from '../Portal';
 import { Paper } from '../Paper';
