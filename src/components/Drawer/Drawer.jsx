@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
-import _cn from '../../utils/cn';
 import cx from 'classnames';
+import _cn from '../../utils/cn';
 
 import { Modal } from '../Modal';
 import { Paper } from '../Paper';

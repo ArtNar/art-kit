@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import DayPicker from 'react-day-picker';
 
 import 'react-day-picker/lib/style.css';
-import _cn from '../../utils/cn';
 import cx from 'classnames';
+import _cn from '../../utils/cn';
 
 const cn = _cn('calendar');
 

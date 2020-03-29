@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import _cn from '../../utils/cn';
 import cx from 'classnames';
+import _cn from '../../utils/cn';
 
 function useLoaded({ src }) {
     const [loaded, setLoaded] = React.useState(false);

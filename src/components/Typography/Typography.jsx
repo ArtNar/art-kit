@@ -1,7 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import _cn from '../../utils/cn';
 import cx from 'classnames';
+import _cn from '../../utils/cn';
 
 const cn = _cn('typography');
 

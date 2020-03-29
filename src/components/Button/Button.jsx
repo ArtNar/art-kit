@@ -1,8 +1,8 @@
 /* eslint-disable react/button-has-type */
 import React, { useState, forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import _cn from '../../utils/cn';
 import cx from 'classnames';
+import _cn from '../../utils/cn';
 import { Spin } from '../Spin';
 import keyboardCode from '../lib/keyboard-code';
 
