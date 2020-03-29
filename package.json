@@ -5,8 +5,9 @@
   "main": "main.js",
   "scripts": {
     "start": "styleguidist server",
+    "clear": "rm -rf dist",
     "build:demo": "styleguidist build",
-    "build": "babel src -d dist && gulp sass",
+    "build": "npm run clear && babel src -d dist && gulp sass",
     "release": "npm run build && cp package.json ./dist/ && npm publish ./dist",
     "release-patch": "npm version patch -m 'chore(*): patch version'",
     "release-minor": "npm version minor -m 'chore(*): minor version'",
@@ -31,7 +32,6 @@
     "@babel/preset-react": "^7.8.3",
     "babel-eslint": "10.1.0",
     "babel-loader": "^8.0.6",
-    "classnames": "^2.2.6",
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.4.2",
     "eslint": "6.8.0",
@@ -56,6 +56,7 @@
   },
   "dependencies": {
     "@bem-react/classname": "^1.5.8",
+    "classnames": "^2.2.6",
     "@popperjs/core": "^2.1.1",
     "prop-types": "^15.7.2",
     "react-day-picker": "^7.4.0",
