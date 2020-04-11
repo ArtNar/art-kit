@@ -1,5 +1,35 @@
-
-
 .grid {
+    position: relative;
+    vertical-align: middle;
+    flex-shrink: 0;
+    box-sizing: border-box;
 
+    &_type_container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    &_type_column {
+        display: inline-flex;
+    }
+
+    &_padded {
+        padding: 0 $padding;
+    }
+}
+
+$sizes: 'xs', 'sm', 'md', 'lg', 'xl';
+
+@function grid-fluid-width($cols) {
+    @return percentage($cols / $base--columns);
+}
+
+@each $size in $sizes {
+    @for $i from 1 through $base--columns {
+        .grid_#{$size}_#{$i} {
+            max-width: grid-fluid-width($i);
+            flex: 0 0 grid-fluid-width($i);
+        }
+    }
 }
