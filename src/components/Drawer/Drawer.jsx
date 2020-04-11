@@ -7,9 +7,12 @@ import _cn from '../../utils/cn';
 import { Modal } from '../Modal';
 import { Paper } from '../Paper';
 
+const DIRECTION_RIGHT = 'right';
+const DIRECTION_DOWN = 'down';
+
 const oppositeDirection = {
-    left: 'right',
-    top: 'down',
+    left: DIRECTION_RIGHT,
+    top: DIRECTION_DOWN,
 };
 
 const cn = _cn('drawer');
@@ -17,21 +20,36 @@ const cn = _cn('drawer');
 const Drawer = React.forwardRef(({
     className,
     anchor = 'left',
-    size = 250,
     children,
-    elevation = 16,
     onClose,
-    open = false,
+    open,
+    size = 250,
     transitionDuration = 300,
-    margin = {
-        top: 0,
-        bottom: 0,
-        right: 0,
-        left: 0,
-    },
     ...rest
 }, ref) => {
     const drawerRef = ref || React.useRef(null);
+    const direction = oppositeDirection[anchor];
+
+    const getDrawerStyles = (state) => {
+        const entered = state === 'entered';
+
+        switch (direction) {
+        case DIRECTION_RIGHT:
+            return {
+                height: '100%',
+                transform: entered ? 'translate(0, 0)' : `translateX(-${size}px)`,
+                width: size,
+            };
+        case DIRECTION_DOWN:
+            return {
+                width: '100%',
+                transform: entered ? 'translate(0, 0)' : `translateY(-${size}px)`,
+                height: size,
+            };
+        default:
+            return {};
+        }
+    };
 
     return (
         <Modal
@@ -50,24 +68,24 @@ const Drawer = React.forwardRef(({
                 }}
                 appear
             >
-                {(state) => (
-                    <div
-                        className={cx(cn({
-                            transitionState: state,
-                            direction: oppositeDirection[anchor],
-                            size,
-                            margin,
-                        }), className)}
-                        ref={drawerRef}
-                    >
-                        <Paper
-                            elevation={elevation}
-                            square
+                {(state) => {
+                    const styles = getDrawerStyles(state);
+
+                    return (
+                        <div
+                            ref={drawerRef}
+                            className={cx(cn(), className)}
+                            style={styles}
                         >
-                            {children}
-                        </Paper>
-                    </div>
-                )}
+                            <Paper
+                                square
+                                fluid
+                            >
+                                {children}
+                            </Paper>
+                        </div>
+                    );
+                }}
             </Transition>
         </Modal>
     );
@@ -77,17 +95,10 @@ Drawer.propTypes = {
     className: PropTypes.string,
     anchor: PropTypes.oneOf(['left', 'top']),
     children: PropTypes.node,
-    elevation: PropTypes.number,
     onClose: PropTypes.func,
     open: PropTypes.bool,
-    transitionDuration: PropTypes.number,
     size: PropTypes.number,
-    margin: PropTypes.shape({
-        top: PropTypes.number,
-        bottom: PropTypes.number,
-        right: PropTypes.number,
-        left: PropTypes.number,
-    }),
+    transitionDuration: PropTypes.number,
 };
 
 export default Drawer;

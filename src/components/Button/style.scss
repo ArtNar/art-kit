@@ -105,7 +105,9 @@
         padding-left: $padding / 2;
     }
 
-    &__icon {
-        padding-right: $padding / 2;
+    &__content {
+        & > *:not(:last-child) {
+            padding-right: $padding / 2;
+        }
     }
 }

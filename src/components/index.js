@@ -19,7 +19,6 @@ export * from './Avatar';
 export * from './Divider';
 export * from './Icons';
 export * from './Badge';
-export * from './Container';
 export * from './Switch';
 export * from './Radio';
 export * from './Input';

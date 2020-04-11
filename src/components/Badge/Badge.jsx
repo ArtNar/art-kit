@@ -16,21 +16,13 @@ const Badge = React.forwardRef(({
     color,
     invisible: invisibleProp,
     max = 99,
-    showZero = false,
-    variant = 'standard',
+    showZero,
     ...rest
 }, ref) => {
     let invisible = invisibleProp;
 
-    if (invisibleProp == null
-        && ((badgeContent === 0 && !showZero) || (badgeContent == null && variant !== 'dot'))) {
+    if (invisibleProp === null && ((badgeContent === 0 && !showZero) || badgeContent === null)) {
         invisible = true;
-    }
-
-    let displayValue = '';
-
-    if (variant !== 'dot') {
-        displayValue = badgeContent > max ? `${max}+` : badgeContent;
     }
 
     return (
@@ -48,7 +40,7 @@ const Badge = React.forwardRef(({
                     vertical: anchorOrigin.vertical,
                 })}
             >
-                {displayValue}
+                {badgeContent > max ? `${max}+` : badgeContent}
             </span>
         </span>
     );
@@ -60,15 +52,12 @@ Badge.propTypes = {
         vertical: PropTypes.oneOf(['bottom', 'top']).isRequired,
     }),
     className: PropTypes.string,
-    badgeContent: PropTypes.node,
+    badgeContent: PropTypes.number,
     children: PropTypes.node,
     color: PropTypes.oneOf(['default', 'error', 'primary', 'secondary']),
-    component: PropTypes.elementType,
     invisible: PropTypes.bool,
     max: PropTypes.number,
-    overlap: PropTypes.oneOf(['circle', 'rectangle']),
     showZero: PropTypes.bool,
-    variant: PropTypes.oneOf(['dot', 'standard']),
 };
 
 export default Badge;

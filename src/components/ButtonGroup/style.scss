@@ -1,11 +1,7 @@
 .button-group {
     display: inline-flex;
 
-    & > * {
+    & > *:not(:last-child){
         margin-right: $padding / 2;
-
-        &:last-child {
-            margin-right: 0;
-        }
     }
 }

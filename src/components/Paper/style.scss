@@ -1,5 +1,3 @@
-
-
 .paper {
     background-color: $color-background;
     color: $color-content;
@@ -12,7 +10,7 @@
     }
 
     &_fluid {
-        width: 100%;
+        flex: 1;
     }
 
     &_variant_outlined {

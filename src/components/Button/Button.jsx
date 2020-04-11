@@ -1,19 +1,15 @@
 /* eslint-disable react/button-has-type */
-import React, { useState, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import _cn from '../../utils/cn';
 import { Spin } from '../Spin';
-import keyboardCode from '../lib/keyboard-code';
 
 const cn = _cn('button');
 
 const Button = forwardRef(({
     id,
-    tag,
     name,
-    type,
-    title,
     tabIndex,
     disabled,
     className,
@@ -28,9 +24,6 @@ const Button = forwardRef(({
     fluid,
     color,
     inProgress,
-    checked,
-    highlighted,
-    padded,
     onClick,
     onFocus,
     onBlur,
@@ -42,213 +35,88 @@ const Button = forwardRef(({
     onKeyDown,
     onKeyUp,
 }, ref) => {
-    const isButton = tag !== 'span';
-
-    const [pressed, setPressed] = useState();
-
-    const handleClick = (event) => {
-        if (onClick) {
-            onClick(event);
-        }
-    };
-
-    const handleFocus = (event) => {
-        if (pressed) {
-            return;
-        }
-
-        if (onFocus) {
-            onFocus(event);
-        }
-    };
-
-    const handleBlur = (event) => {
-        if (onBlur) {
-            onBlur(event);
-        }
-    };
-
-    const handleMouseEnter = (event) => {
-        if (onMouseEnter) {
-            onMouseEnter(event);
-        }
-    };
-
-    const handleMouseLeave = (event) => {
-        if (onMouseLeave) {
-            onMouseLeave(event);
-        }
-    };
-
-    const handleMouseDown = (event) => {
-        if (!disabled) {
-            setPressed(true);
-        }
-
-        if (onMouseDown) {
-            onMouseDown(event);
-        }
-    };
-
-    const handleMouseUp = (event) => {
-        if (!disabled) {
-            setPressed(false);
-        }
-
-        if (onMouseUp) {
-            onMouseUp(event);
-        }
-    };
-
-    const handleMouseOut = (event) => {
-        if (!disabled) {
-            setPressed(false);
-        }
-
-        if (onMouseOut) {
-            onMouseOut(event);
-        }
-    };
-
-    const handleKeyDown = (event) => {
-        if ((event.which === keyboardCode.ENTER || event.which === keyboardCode.SPACE)
-            && !disabled) {
-            setPressed(true);
-        }
-
-        if (onKeyDown) {
-            onKeyDown(event);
-        }
-    };
-
-    const handleKeyUp = (event) => {
-        if ((event.which === keyboardCode.ENTER || event.which === keyboardCode.SPACE)
-            && !disabled) {
-            setPressed(false);
-        }
-
-        if (onKeyUp) {
-            onKeyUp(event);
-        }
-    };
-
-    const buttonContent = [
-        leftAddons && (
-            <span
-                key="left-addons"
-                className={cn('left-addons')}
-            >
-                { leftAddons }
-            </span>
-        ),
-        (children || text || icon) && (
-            <span
-                key="content"
-                className={cn('content')}
-            >
-                { !inProgress && icon && (
-                    <span
-                        key="icon"
-                        className={cn('icon')}
-                    >
-                        { icon }
-                    </span>
-                ) }
-                { !inProgress && (children || text) && (
-                    <span
-                        key="text"
-                        className={cn('text', { highlighted })}
-                    >
-                        { children || text }
-                    </span>
-                ) }
-                { inProgress && (
+    const buttonContent = (
+        <span
+            key="content"
+            className={cn('content')}
+        >
+            { inProgress
+                ? (
                     <Spin
                         color={view === 'default' ? 'black' : 'white'}
                         size={size}
                     />
-                ) }
-            </span>
-        ),
-        (rightAddons) && (
-            <span
-                key="right-addons"
-                className={cn('right-addons')}
-            >
-                { rightAddons }
-            </span>
-        ),
-    ];
+                )
+                : (
+                    <>
+                        { leftAddons && (
+                            <span
+                                key="left-addons"
+                            >
+                                { leftAddons }
+                            </span>
+                        )}
+                        { !inProgress && icon && (
+                            <span
+                                key="icon"
+                                className={cn('icon')}
+                            >
+                                { icon }
+                            </span>
+                        ) }
+                        { !inProgress && (children || text) && (
+                            <span
+                                key="text"
+                                className={cn('text')}
+                            >
+                                { children || text }
+                            </span>
+                        ) }
+
+                        { rightAddons && (
+                            <span
+                                key="right-addons"
+                            >
+                                { rightAddons }
+                            </span>
+                        )}
+                    </>
+                )}
+        </span>
+    );
 
     const buttonProps = {
         id,
         name,
-        title,
-        type,
         tabIndex,
         disabled,
-        onClick: handleClick,
-        onFocus: handleFocus,
-        onBlur: handleBlur,
-        onMouseEnter: handleMouseEnter,
-        onMouseLeave: handleMouseLeave,
-        onMouseDown: handleMouseDown,
-        onMouseUp: handleMouseUp,
-        onMouseOut: handleMouseOut,
-        onKeyDown: handleKeyDown,
-        onKeyUp: handleKeyUp,
+        onClick,
+        onFocus,
+        onBlur,
+        onMouseEnter,
+        onMouseLeave,
+        onMouseDown,
+        onMouseUp,
+        onMouseOut,
+        onKeyDown,
+        onKeyUp,
     };
 
-    const styleProps = {
-        disabled,
-        view,
-        shape,
-        size,
-        fluid,
-        checked,
-        padded,
-        color,
-    };
-
-    const renderButton = () => (
-        (children || text)
-            ? (
-                <button
-                    ref={ref}
-                    className={cx(cn({
-                        ...styleProps,
-                    }), className)}
-                    {...buttonProps}
-                >
-                    {buttonContent}
-                </button>
-            )
-            : (
-                <button
-                    ref={ref}
-                    key="icon"
-                    className={cx(cn({
-                        ...styleProps,
-                    }), className)}
-                    {...buttonProps}
-                >
-                    {icon}
-                </button>
-            )
-    );
-
-    return isButton ? (
-        renderButton()
-    ) : (
-        <span
+    return (
+        <button
             ref={ref}
             className={cx(cn({
-                ...styleProps,
+                disabled,
+                view,
+                shape,
+                size,
+                fluid,
+                color,
             }), className)}
             {...buttonProps}
         >
             {buttonContent}
-        </span>
+        </button>
     );
 });
 
@@ -259,21 +127,14 @@ Button.propTypes = {
     leftAddons: PropTypes.node,
     view: PropTypes.oneOf(['default', 'primary', 'success', 'danger', 'link']),
     shape: PropTypes.oneOf(['default', 'circle', 'round']),
-    type: PropTypes.oneOf(['button', 'reset', 'submit']),
-    tag: PropTypes.oneOf(['button', 'span']),
     size: PropTypes.oneOf(['s', 'm', 'l', 'xl']),
     color: PropTypes.oneOf(['white']),
     fluid: PropTypes.bool,
-    padded: PropTypes.bool,
     disabled: PropTypes.bool,
     inProgress: PropTypes.bool,
-    focused: PropTypes.bool,
     id: PropTypes.string,
     name: PropTypes.string,
-    title: PropTypes.string,
     tabIndex: PropTypes.number,
-    highlighted: PropTypes.bool,
-    checked: PropTypes.bool,
     children: PropTypes.node,
     className: PropTypes.string,
     onClick: PropTypes.func,
@@ -289,8 +150,6 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-    type: 'button',
-    tag: 'button',
     size: 'm',
     view: 'default',
 };

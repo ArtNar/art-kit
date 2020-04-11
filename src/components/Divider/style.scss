@@ -1,12 +1,6 @@
-
-
 .divider {
     height: 1px;
     margin: $padding;
     border: none;
     background-color: $color-border-minor;
-
-    &_visibility_hidden {
-        visibility: hidden;
-    }
 }

@@ -11,9 +11,7 @@ const ButtonGroup = React.forwardRef(({
     color,
     disabled,
     fluid,
-    orientation,
     size,
-    variant,
     ...rest
 }, ref) => (
     <div
@@ -30,9 +28,7 @@ const ButtonGroup = React.forwardRef(({
             return React.cloneElement(child, {
                 disabled: child.props.disabled || disabled,
                 color: child.props.color || color,
-                orientation,
                 size: child.props.size || size,
-                variant: child.props.variant || variant,
             });
         })}
     </div>
@@ -44,9 +40,7 @@ ButtonGroup.propTypes = {
     color: PropTypes.oneOf(['default', 'inherit', 'primary', 'secondary']),
     disabled: PropTypes.bool,
     fluid: PropTypes.bool,
-    orientation: PropTypes.oneOf(['vertical', 'horizontal']),
     size: PropTypes.oneOf(['small', 'medium', 'large']),
-    variant: PropTypes.oneOf(['text', 'outlined', 'contained']),
 };
 
 export default ButtonGroup;

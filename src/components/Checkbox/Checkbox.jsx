@@ -38,7 +38,6 @@ const Checkbox = React.forwardRef(({
     return (
         <span
             className={cx(cn({ disabled }), className)}
-            disabled={disabled}
         >
             <input
                 className={cn('input')}
@@ -61,14 +60,11 @@ const Checkbox = React.forwardRef(({
                 {checked ? <CheckBoxIcon /> : <CheckBoxOutlineBlankIcon />}
             </span>
             {
-                label ? (
-                    <span
-                        className={cn('label')}
-                    >
+                label && (
+                    <span className={cn('label')}>
                         {label}
-
                     </span>
-                ) : null
+                )
             }
         </span>
     );

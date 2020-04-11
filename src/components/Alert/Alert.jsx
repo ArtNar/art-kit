@@ -27,7 +27,6 @@ const Alert = React.forwardRef(({
     children,
     icon,
     onClose,
-    role = 'alert',
     type = 'info',
     variant,
     ...rest
@@ -35,7 +34,6 @@ const Alert = React.forwardRef(({
     <div
         className={cx(cn({
             type,
-            role,
         }), className)}
     >
         <Paper
@@ -44,17 +42,13 @@ const Alert = React.forwardRef(({
             {...rest}
         >
             <div className={cn('content')}>
-                {!action && (
+                {(icon || type) && (
                     <div className={cn('icon')}>
-                        {icon !== false ? (
-                            <div>
-                                {icon || defaultIconMapping[type]}
-                            </div>
-                        ) : null}
+                        {icon || defaultIconMapping[type]}
                     </div>
                 )}
                 <div>{children}</div>
-                {!action && onClose ? (
+                {onClose && (
                     <div className={cn('action')}>
                         <Button
                             view="link"
@@ -64,7 +58,7 @@ const Alert = React.forwardRef(({
                             <CloseIcon fontSize="small" />
                         </Button>
                     </div>
-                ) : null}
+                )}
             </div>
             {action && (
                 <div className={cn('actions')}>
@@ -81,7 +75,6 @@ Alert.propTypes = {
     children: PropTypes.node,
     icon: PropTypes.node,
     onClose: PropTypes.func,
-    role: PropTypes.string,
     type: PropTypes.oneOf(['error', 'info', 'success', 'warning']),
     variant: PropTypes.oneOf(['filled', 'outlined']),
 };
