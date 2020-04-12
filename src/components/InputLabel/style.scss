@@ -1,21 +1,9 @@
-
-
 .input-label {
     display: block;
-    font-size: .875rem;
-    line-height: 1rem;
-    transform-origin: top left;
-    transform: translate(10px, 27px) scale(1);
-    transition-duration: 200ms;
-    transition-property: color, transform;
-    transition-timing-function: ease;
+    margin-bottom: $padding / 2;
 
     &_disabled {
         opacity: $opacity-disabled;
-    }
-
-    &_shrink {
-        transform: translate(0, 0) scale(0.75);
     }
 
     &_error {

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
 import _cn from '../../utils/cn';
 
 const cn = _cn('input-helper-text');
@@ -8,28 +7,30 @@ const cn = _cn('input-helper-text');
 const InputHelperText = React.forwardRef(({
     disabled,
     error,
+    children,
     ...rest
 }, ref) => (
     <p
-        className={cx(cn({
-            disabled,
-            error: !!error,
-        }))}
-        ref={ref}
         {...rest}
+        ref={ref}
+        className={cn({
+            disabled,
+            error,
+        })}
     >
-        {error === ' ' ? (
+        {children === ' ' ? (
             // eslint-disable-next-line react/no-danger
             <span dangerouslySetInnerHTML={{ __html: '&#8203;' }} />
         ) : (
-            error
+            children
         )}
     </p>
 ));
 
 InputHelperText.propTypes = {
+    children: PropTypes.string,
     disabled: PropTypes.bool,
-    error: PropTypes.string,
+    error: PropTypes.bool,
 };
 
 export default InputHelperText;

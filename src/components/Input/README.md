@@ -11,13 +11,24 @@ Input:
     fluid
 />
 ```
+Input - with label:
+```jsx
+<Input
+    name="email"
+    type="email"
+    label="Email"
+    placeholder="Email"
+    fluid
+/>
+```
+
 Input - error:
 ```jsx
 <Input
     name="email"
     type="email"
     placeholder="Email"
-    error="some error"
+    error="Some error"
     fluid
 />
 ```

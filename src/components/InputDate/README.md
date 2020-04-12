@@ -11,5 +11,6 @@ const [value, setValue] = useState();
 <InputDate
     value={value}
     onChange={setValue}
+    placeholder="Date"
 />
 ```

@@ -6,27 +6,19 @@ const cn = _cn('input-label');
 
 const InputLabel = React.forwardRef(({
     children,
-    color,
     disabled,
     error,
-    focused,
-    shrink,
-    variant,
     htmlFor,
     ...rest
 }, ref) => (
     <label
-        className={cn({
-            color,
-            disabled,
-            error,
-            focused,
-            shrink,
-            variant,
-        })}
+        {...rest}
         ref={ref}
         htmlFor={htmlFor}
-        {...rest}
+        className={cn({
+            disabled,
+            error,
+        })}
     >
         {children}
     </label>
@@ -34,13 +26,9 @@ const InputLabel = React.forwardRef(({
 
 InputLabel.propTypes = {
     children: PropTypes.node,
-    color: PropTypes.oneOf(['primary', 'secondary']),
     htmlFor: PropTypes.string,
     disabled: PropTypes.bool,
     error: PropTypes.bool,
-    focused: PropTypes.bool,
-    shrink: PropTypes.bool,
-    variant: PropTypes.oneOf(['standard', 'outlined', 'filled']),
 };
 
 export default InputLabel;

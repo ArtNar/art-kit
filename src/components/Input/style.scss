@@ -1,5 +1,3 @@
-
-
 .input {
     display: flex;
     flex-direction: column;
@@ -8,8 +6,8 @@
     &__inner {
         position: relative;
         display: inline-flex;
-        box-sizing: border-box;
         align-items: center;
+        box-sizing: border-box;
         transition-duration: 200ms;
         transition-property: border-color, color;
         transition-timing-function: ease-in-out;
@@ -23,6 +21,10 @@
 
         &_error {
             border-color: $color-control-background-error;
+
+            &::placeholder {
+                color: $color-control-background-error;
+            }
         }
 
         &_fluid {
@@ -45,9 +47,10 @@
         padding: $padding;
         background: none;
         box-sizing: content-box;
+        border-radius: $border-radius;
 
-        &_readOnly {
-            cursor: pointer;
+        &_error::placeholder {
+            color: $color-control-background-error;
         }
     }
 }

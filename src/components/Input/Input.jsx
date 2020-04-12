@@ -10,23 +10,21 @@ const cn = _cn('input');
 
 const Input = React.forwardRef(({
     className,
-    color,
+    placeholder,
     disabled,
+    readOnly,
     required,
     error,
-    fluid = false,
+    fluid,
     id,
     name,
     label,
     onBlur,
     onChange,
     onClick,
-    onFocus,
     onKeyDown,
     onKeyUp,
-    placeholder,
-    outlined,
-    readOnly,
+    onFocus,
     type = 'text',
     value,
     ...rest
@@ -36,7 +34,6 @@ const Input = React.forwardRef(({
     const [focused, setFocused] = React.useState(false);
 
     // The blur won't fire when the disabled state is set on a focused input.
-    // We need to book keep the focused state manually.
     React.useEffect(() => {
         if (disabled && focused) {
             setFocused(false);
@@ -84,39 +81,30 @@ const Input = React.forwardRef(({
             {label && (
                 <InputLabel
                     htmlFor={id}
-                    focused={focused}
-                    shrink={!!value}
                 >
                     {label}
                 </InputLabel>
             )}
             <div
+                {...rest}
+                ref={ref}
                 className={cn('inner', {
                     disabled,
-                    outlined,
                     focused,
                     fluid,
-                    error,
+                    error: !!error,
                 })}
-                ref={ref}
-                {...rest}
             >
                 <input
-                    className={cn('input', {
-                        disabled,
-                        focused,
-                        outlined,
-                        fluid,
-                        error,
-                    })}
-                    disabled={disabled}
+                    className={cn('input', { error: !!error })}
                     id={id}
                     name={name}
                     type={type}
+                    value={value}
                     placeholder={placeholder}
+                    disabled={disabled}
                     readOnly={readOnly}
                     required={required}
-                    value={value}
                     onKeyDown={onKeyDown}
                     onKeyUp={onKeyUp}
                     onBlur={handleBlur}
@@ -126,23 +114,22 @@ const Input = React.forwardRef(({
                 />
             </div>
             <InputHelperText
-                error={error}
                 disabled={disabled}
-            />
+                error
+            >
+                {error}
+            </InputHelperText>
         </div>
     );
 });
 
 Input.propTypes = {
-    color: PropTypes.oneOf(['primary', 'secondary']),
-    disabled: PropTypes.bool,
     className: PropTypes.string,
+    disabled: PropTypes.bool,
     error: PropTypes.string,
     label: PropTypes.string,
     fluid: PropTypes.bool,
-    outlined: PropTypes.bool,
     id: PropTypes.string,
-    multiline: PropTypes.bool,
     name: PropTypes.string,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,

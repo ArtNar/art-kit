@@ -5,7 +5,6 @@ module.exports = {
         {
             name: 'Components',
             components: '**/src/components/**/*.jsx',
-            ignore: '**/src/components/Icons/**/*.jsx',
         },
     ],
     webpackConfig: require('./webpack/webpack.config.base.js'),
@@ -15,4 +14,5 @@ module.exports = {
     propsParser(filePath, source, resolver, handlers) {
         return require('react-docgen').parse(source, resolver, handlers);
     },
+    skipComponentsWithoutExample: true,
 };
