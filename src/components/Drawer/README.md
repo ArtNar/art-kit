@@ -17,7 +17,7 @@ const [open, setOpen] = useState(false);
     </Button>
     <Drawer
         open={open}
-        onClose={() => setOpen(false)}
+        onRequestClose={() => setOpen(false)}
     >
         Drawer!!!
     </Drawer>
@@ -42,7 +42,7 @@ const [open, setOpen] = useState(false);
         anchor='top'
         size={50}
         open={open}
-        onClose={() => setOpen(false)}
+        onRequestClose={() => setOpen(false)}
     >
         Drawer!!!
     </Drawer>

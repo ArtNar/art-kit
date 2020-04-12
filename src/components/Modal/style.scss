@@ -26,4 +26,21 @@
             background-color: rgba(0, 0, 0, 0.5);
         }
     }
+
+    &__close-button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        transform: translateX(calc(100% + #{$padding}));
+    }
+
+    &__dialog {
+        position: relative;
+        opacity: 0;
+        transition: opacity 0.3s ease-out 0s;
+
+        &_transitionState_entered {
+            opacity: 1;
+        }
+    }
 }

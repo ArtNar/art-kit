@@ -21,7 +21,7 @@ const Drawer = React.forwardRef(({
     className,
     anchor = 'left',
     children,
-    onClose,
+    onRequestClose,
     open,
     size = 250,
     transitionDuration = 300,
@@ -55,8 +55,8 @@ const Drawer = React.forwardRef(({
         <Modal
             {...rest}
             ref={ref}
-            open={open}
-            onClose={onClose}
+            isOpen={open}
+            onRequestClose={onRequestClose}
             transitionDuration={transitionDuration}
             closeAfterTransition
         >
@@ -95,7 +95,7 @@ Drawer.propTypes = {
     className: PropTypes.string,
     anchor: PropTypes.oneOf(['left', 'top']),
     children: PropTypes.node,
-    onClose: PropTypes.func,
+    onRequestClose: PropTypes.func,
     open: PropTypes.bool,
     size: PropTypes.number,
     transitionDuration: PropTypes.number,

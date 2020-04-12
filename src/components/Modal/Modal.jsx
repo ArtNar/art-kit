@@ -1,36 +1,38 @@
-import React from 'react';
+import React, {
+    useEffect,
+    useCallback,
+    useState,
+} from 'react';
 import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
 import cx from 'classnames';
 import _cn from '../../utils/cn';
+
 import { Portal } from '../Portal';
 
 const cn = _cn('modal');
 
-const Modal = React.forwardRef(({
+const Modal = (({
     children,
     className,
-    container,
     center,
+    container,
     hideBackdrop,
-    closeAfterTransition,
+    closeAfterTransition = true,
     onBackdropClick,
+    onRequestClose,
     onClose,
     onEscapeKeyDown,
-    open,
+    isOpen,
     transitionDuration = 300,
+    props = {},
     ...rest
-}, ref) => {
-    const modalRef = ref || React.useRef(null);
-    const [exited, setExited] = React.useState(true);
+}) => {
+    const [exited, setExited] = useState(true);
 
     const hasTransition = closeAfterTransition;
 
-    if (!open && (!hasTransition || exited)) {
-        return null;
-    }
-
-    const handleBackdropClick = (event) => {
+    const handleBackdropClick = useCallback((event) => {
         if (event.target !== event.currentTarget) {
             return;
         }
@@ -39,12 +41,12 @@ const Modal = React.forwardRef(({
             onBackdropClick(event);
         }
 
-        if (onClose) {
-            onClose(event, 'backdropClick');
+        if (onRequestClose) {
+            onRequestClose(event, 'backdropClick');
         }
-    };
+    }, [onRequestClose, onBackdropClick]);
 
-    const handleKeyDown = (event) => {
+    const handleKeyDown = useCallback((event) => {
         if (event.key !== 'Escape') {
             return;
         }
@@ -55,10 +57,10 @@ const Modal = React.forwardRef(({
             onEscapeKeyDown(event);
         }
 
-        if (onClose) {
-            onClose(event, 'escapeKeyDown');
+        if (onRequestClose) {
+            onRequestClose(event, 'escapeKeyDown');
         }
-    };
+    }, [onRequestClose, onEscapeKeyDown]);
 
     const handleEnter = () => {
         setExited(false);
@@ -72,53 +74,77 @@ const Modal = React.forwardRef(({
         }
     };
 
+    useEffect(() => {
+        document.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [handleKeyDown]);
+
+    const getChildComponent = () => {
+        if (!React.isValidElement(children)) {
+            return children;
+        }
+
+        return React.cloneElement(children, { ...props });
+    };
+
+    if (!isOpen && (!hasTransition || exited)) {
+        return null;
+    }
+
     return (
         <Portal container={container}>
             <div
                 {...rest}
-                ref={modalRef}
                 className={cx(cn({ center }), className)}
-                onKeyDown={handleKeyDown}
                 role="presentation"
             >
-                {!hideBackdrop && (
-                    <Transition
-                        in={open}
-                        timeout={{
-                            enter: 1,
-                            exit: transitionDuration,
-                        }}
-                        onExited={handleExited}
-                        onEnter={handleEnter}
-                        appear
-                    >
-                        {(state) => (
-                            <div
-                                className={cn('backdrop', { transitionState: state })}
-                                onClick={handleBackdropClick}
-                                role="presentation"
-                            />
-                        )}
-                    </Transition>
-                )}
-                {children}
+                <Transition
+                    in={isOpen}
+                    timeout={{
+                        enter: 1,
+                        exit: transitionDuration,
+                    }}
+                    onExited={handleExited}
+                    onEnter={handleEnter}
+                    appear
+                >
+                    {(state) => (
+                        <>
+                            {!hideBackdrop && (
+                                <div
+                                    className={cn('backdrop', { transitionState: state })}
+                                    onClick={handleBackdropClick}
+                                    role="presentation"
+                                />
+                            )}
+                            <div className={cn('dialog', { transitionState: state })}>
+                                {getChildComponent()}
+                            </div>
+                        </>
+                    )}
+                </Transition>
             </div>
         </Portal>
     );
 });
 
 Modal.propTypes = {
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node,
     className: PropTypes.string,
-    container: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+    center: PropTypes.bool,
+    container: PropTypes.shape({}),
     hideBackdrop: PropTypes.bool,
     closeAfterTransition: PropTypes.bool,
-    center: PropTypes.bool,
     onBackdropClick: PropTypes.func,
+    onRequestClose: PropTypes.func,
     onClose: PropTypes.func,
     onEscapeKeyDown: PropTypes.func,
-    open: PropTypes.bool.isRequired,
+    isOpen: PropTypes.bool,
     transitionDuration: PropTypes.number,
+    props: PropTypes.shape({}),
 };
 
 export default Modal;

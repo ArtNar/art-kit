@@ -108,7 +108,7 @@ const Popper = forwardRef(({
 });
 
 Popper.propTypes = {
-    anchorEl: PropTypes.oneOfType([PropTypes.object, PropTypes.func]).isRequired,
+    anchorEl: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
     children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired,
     container: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
     disablePortal: PropTypes.bool,
