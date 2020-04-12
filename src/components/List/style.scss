@@ -1,12 +1,12 @@
-
-
 .list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    position: relative;
+    &__title {
+        font-size: $font-size-xl;
+    }
 
-    &_padded {
-        padding: $padding 0;
+    &__content {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        list-style: none;
     }
 }

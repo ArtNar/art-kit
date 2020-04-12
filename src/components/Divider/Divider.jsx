@@ -7,10 +7,11 @@ const cn = _cn('divider');
 
 const Divider = React.forwardRef(({
     className,
+    fullWidth,
     ...rest
 }, ref) => (
     <hr
-        className={cx(cn(), className)}
+        className={cx(cn({ fullWidth }), className)}
         ref={ref}
         {...rest}
     />
@@ -18,6 +19,7 @@ const Divider = React.forwardRef(({
 
 Divider.propTypes = {
     className: PropTypes.string,
+    fullWidth: PropTypes.bool,
 };
 
 export default Divider;

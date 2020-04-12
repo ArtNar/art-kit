@@ -18,6 +18,7 @@ const [open, setOpen] = useState(false);
     <Modal
         open={open}
         onClose={() => setOpen(false)}
+        center
     >
         Modal!!!
     </Modal>

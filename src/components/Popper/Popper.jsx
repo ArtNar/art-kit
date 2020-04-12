@@ -5,7 +5,6 @@ import { Transition } from 'react-transition-group';
 import _cn from '../../utils/cn';
 
 import { Portal } from '../Portal';
-import { Paper } from '../Paper';
 
 const cn = _cn('popper');
 
@@ -32,13 +31,12 @@ const Popper = forwardRef(({
     anchorEl,
     children,
     container,
-    disablePortal = false,
-    closeAfterTransition = false,
+    disablePortal,
+    closeAfterTransition,
     open,
     placement: initialPlacement = 'bottom',
     popperOptions = {},
     transitionDuration = 200,
-    ...rest
 }, ref) => {
     const tooltipRef = ref || React.useRef(ref);
 
@@ -56,6 +54,14 @@ const Popper = forwardRef(({
         if (node) {
             createPopper(getAnchorEl(anchorEl), node, {
                 placement: rtlPlacement,
+                modifiers: [
+                    {
+                        name: 'offset',
+                        options: {
+                            offset: [0, 8],
+                        },
+                    },
+                ],
                 ...popperOptions,
             });
         }
@@ -88,18 +94,12 @@ const Popper = forwardRef(({
                 appear
             >
                 {(state) => (
-                    <div className={cn({ transitionState: state })}>
-                        <Paper
-                            ref={setRef}
-                            role="tooltip"
-                            {...rest}
-                            style={{
-                                zIndex: 99999,
-                                ...rest.style,
-                            }}
-                        >
-                            {children}
-                        </Paper>
+                    <div
+                        ref={setRef}
+                        role="tooltip"
+                        className={cn({ transitionState: state })}
+                    >
+                        {children}
                     </div>
                 )}
             </Transition>
@@ -108,7 +108,7 @@ const Popper = forwardRef(({
 });
 
 Popper.propTypes = {
-    anchorEl: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+    anchorEl: PropTypes.oneOfType([PropTypes.object, PropTypes.func]).isRequired,
     children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired,
     container: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
     disablePortal: PropTypes.bool,

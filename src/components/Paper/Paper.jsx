@@ -10,7 +10,8 @@ const Paper = React.forwardRef(({
     elevation,
     square,
     fluid,
-    variant = 'filled',
+    padded = true,
+    outlined,
     ...rest
 }, ref) => (
     <div
@@ -19,7 +20,8 @@ const Paper = React.forwardRef(({
             elevation,
             fluid,
             square,
-            variant,
+            outlined,
+            padded,
         }), className)}
         {...rest}
     />
@@ -30,8 +32,9 @@ Paper.propTypes = {
     className: PropTypes.string,
     elevation: PropTypes.number,
     square: PropTypes.bool,
+    padded: PropTypes.bool,
     fluid: PropTypes.bool,
-    variant: PropTypes.oneOf(['filled', 'outlined']),
+    outlined: PropTypes.bool,
 };
 
 export default Paper;

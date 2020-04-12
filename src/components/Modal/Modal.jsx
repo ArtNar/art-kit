@@ -11,6 +11,7 @@ const Modal = React.forwardRef(({
     children,
     className,
     container,
+    center,
     hideBackdrop,
     closeAfterTransition,
     onBackdropClick,
@@ -74,36 +75,32 @@ const Modal = React.forwardRef(({
     return (
         <Portal container={container}>
             <div
-                className={cx(cn(), className)}
+                {...rest}
                 ref={modalRef}
+                className={cx(cn({ center }), className)}
                 onKeyDown={handleKeyDown}
                 role="presentation"
-                {...rest}
             >
-                {
-                    hideBackdrop
-                        ? null
-                        : (
-                            <Transition
-                                in={open}
-                                timeout={{
-                                    enter: 1,
-                                    exit: transitionDuration,
-                                }}
-                                onExited={handleExited}
-                                onEnter={handleEnter}
-                                appear
-                            >
-                                {(state) => (
-                                    <div
-                                        className={cn('backdrop', { transitionState: state })}
-                                        onClick={handleBackdropClick}
-                                        role="presentation"
-                                    />
-                                )}
-                            </Transition>
-                        )
-                }
+                {!hideBackdrop && (
+                    <Transition
+                        in={open}
+                        timeout={{
+                            enter: 1,
+                            exit: transitionDuration,
+                        }}
+                        onExited={handleExited}
+                        onEnter={handleEnter}
+                        appear
+                    >
+                        {(state) => (
+                            <div
+                                className={cn('backdrop', { transitionState: state })}
+                                onClick={handleBackdropClick}
+                                role="presentation"
+                            />
+                        )}
+                    </Transition>
+                )}
                 {children}
             </div>
         </Portal>
@@ -116,6 +113,7 @@ Modal.propTypes = {
     container: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
     hideBackdrop: PropTypes.bool,
     closeAfterTransition: PropTypes.bool,
+    center: PropTypes.bool,
     onBackdropClick: PropTypes.func,
     onClose: PropTypes.func,
     onEscapeKeyDown: PropTypes.func,

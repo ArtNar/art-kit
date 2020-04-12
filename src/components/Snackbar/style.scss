@@ -1,13 +1,11 @@
-
-
 .snackbar {
-    z-index: $z-index-snackbar;
     position: fixed;
-    display: flex;
     left: $padding / 2;
     right: $padding / 2;
+    display: flex;
     justify-content: center;
     align-items: center;
+    z-index: $z-index-snackbar;
 
     &_vertical_bottom {
         bottom: $padding / 2;

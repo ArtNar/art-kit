@@ -7,20 +7,20 @@ const cn = _cn('list-item-icon');
 
 const ListItemIcon = React.forwardRef(({
     className,
-    children,
+    icon,
     ...rest
 }, ref) => (
     <div
-        className={cx(cn(), className)}
-        ref={ref}
         {...rest}
+        ref={ref}
+        className={cx(cn(), className)}
     >
-        {children}
+        {icon}
     </div>
 ));
 
 ListItemIcon.propTypes = {
-    children: PropTypes.node,
+    icon: PropTypes.node,
     className: PropTypes.string,
 };
 

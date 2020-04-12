@@ -3,18 +3,21 @@
     color: $color-content;
     border-radius: $border-radius;
     box-shadow: $shadow;
-    padding: $padding;
 
     &_square {
         border-radius: 0;
+    }
+
+    &_padded {
+        padding: $padding;
     }
 
     &_fluid {
         flex: 1;
     }
 
-    &_variant_outlined {
-        background-color: transparent;
+    &_outlined {
+        background-color: $color-control-background;
         box-shadow: none;
         border: $border-size-s solid;
         border-color: $color-control-border;

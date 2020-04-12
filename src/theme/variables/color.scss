@@ -14,6 +14,7 @@ $color-control-content-primary: #2387fb;
 
 $color-control-background: #fff;
 $color-control-background-primary: #2387fb;
+$color-control-background-minor: lighten($color-control-background-primary, 35%);
 $color-control-background-primary-hovered: lighten($color-control-background-primary, 3%);
 $color-control-background-success: #00c853;
 $color-control-background-success-hovered: lighten($color-control-background-success, 3%);

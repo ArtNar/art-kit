@@ -4,5 +4,7 @@ import { MenuItem } from 'artn-kit/components';
 
 MenuItem:
 ```jsx
-<MenuItem/>
+<MenuItem>
+    Menu item
+</MenuItem>
 ```

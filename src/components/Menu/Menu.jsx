@@ -9,10 +9,9 @@ const Menu = React.forwardRef(({
     autoFocus = true,
     anchorEl,
     children,
-    MenuListProps = {},
     onClose,
     open,
-    closeAfterTransition,
+    closeAfterTransition = true,
     popperOptions = {},
     popperPlacement,
     ...rest
@@ -34,19 +33,18 @@ const Menu = React.forwardRef(({
     return (
         <ClickAwayListener onClickAway={handleClose}>
             <Popper
+                ref={ref}
+                open={open}
                 anchorEl={anchorEl}
                 popperOptions={popperOptions}
                 placement={popperPlacement}
                 closeAfterTransition={closeAfterTransition}
-                open={open}
-                ref={ref}
-                {...rest}
             >
                 <MenuList
-                    onKeyDown={handleListKeyDown}
-                    autoFocus={autoFocus}
+                    {...rest}
                     ref={menuRef}
-                    {...MenuListProps}
+                    autoFocus={autoFocus}
+                    onKeyDown={handleListKeyDown}
                 >
                     {children}
                 </MenuList>
@@ -56,11 +54,10 @@ const Menu = React.forwardRef(({
 });
 
 Menu.propTypes = {
-    anchorEl: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+    anchorEl: PropTypes.oneOfType([PropTypes.object, PropTypes.func]).isRequired,
     autoFocus: PropTypes.bool,
     closeAfterTransition: PropTypes.bool,
     children: PropTypes.node,
-    MenuListProps: PropTypes.shape({}),
     popperPlacement: PropTypes.string,
     onClose: PropTypes.func,
     open: PropTypes.bool.isRequired,

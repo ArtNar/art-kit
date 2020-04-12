@@ -6,8 +6,6 @@ export * from './Portal';
 export * from './ClickAwayListener';
 export * from './List';
 export * from './ListItem';
-export * from './ListItemText';
-export * from './ListItemIcon';
 export * from './Menu';
 export * from './MenuItem';
 export * from './MenuList';

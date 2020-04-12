@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 const Portal = forwardRef(({
     children,
     container,
-    disable = false,
+    disable,
 }, ref) => {
     const [mountNode, setMountNode] = useState(null);
 

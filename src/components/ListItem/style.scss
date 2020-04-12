@@ -1,14 +1,16 @@
 
 
 .list-item {
+    position: relative;
+    width: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    position: relative;
-    text-decoration: none;
-    width: 100%;
     box-sizing: border-box;
-    padding: $padding 0;
+    padding: $padding;
+    text-decoration: none;
+
+    border-radius: $border-radius;
 
     &_disabled {
         opacity: $opacity-disabled;
@@ -18,11 +20,15 @@
         cursor: pointer;
 
         &:hover {
-            color: $color-background-darker;
+            background-color: $color-control-background-minor;
         }
     }
 
     &_selected {
-        color: $color-background-darker;
+        background-color: $color-control-background-minor;
+    }
+
+    &__text {
+        flex: 1 1 auto;
     }
 }

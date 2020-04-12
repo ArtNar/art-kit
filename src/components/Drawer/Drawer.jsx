@@ -53,12 +53,12 @@ const Drawer = React.forwardRef(({
 
     return (
         <Modal
+            {...rest}
             ref={ref}
             open={open}
             onClose={onClose}
             transitionDuration={transitionDuration}
             closeAfterTransition
-            {...rest}
         >
             <Transition
                 in={open}

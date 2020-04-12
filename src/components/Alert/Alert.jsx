@@ -28,7 +28,7 @@ const Alert = React.forwardRef(({
     icon,
     onClose,
     type = 'info',
-    variant,
+    outlined,
     ...rest
 }, ref) => (
     <div
@@ -38,7 +38,7 @@ const Alert = React.forwardRef(({
     >
         <Paper
             ref={ref}
-            variant={variant}
+            outlined={outlined}
             {...rest}
         >
             <div className={cn('content')}>
@@ -76,7 +76,7 @@ Alert.propTypes = {
     icon: PropTypes.node,
     onClose: PropTypes.func,
     type: PropTypes.oneOf(['error', 'info', 'success', 'warning']),
-    variant: PropTypes.oneOf(['filled', 'outlined']),
+    outlined: PropTypes.bool,
 };
 
 export default Alert;

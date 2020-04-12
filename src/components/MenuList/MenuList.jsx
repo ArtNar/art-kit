@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import _cn from '../../utils/cn';
 
 import { List } from '../List';
+import { Paper } from '../Paper';
 
 function nextItem(list, item, disableListWrap) {
     if (list === item) {
@@ -69,12 +71,13 @@ function moveFocus(list, currentFocus, disableListWrap, traversalFunction, textC
     return false;
 }
 
+const cn = _cn('menu-list');
+
 const MenuList = React.forwardRef(({
-    autoFocus = false,
+    autoFocus,
     children,
     onKeyDown,
-    disableListWrap = false,
-    ...other
+    disableListWrap,
 }, ref) => {
     const listRef = ref || React.useRef(null);
 
@@ -110,14 +113,18 @@ const MenuList = React.forwardRef(({
     };
 
     return (
-        <List
-            role="menu"
+        <Paper
             ref={listRef}
+            className={cn()}
+            role="menu"
             onKeyDown={handleKeyDown}
-            {...other}
+            padded={false}
+            outlined
         >
-            {children}
-        </List>
+            <List>
+                {children}
+            </List>
+        </Paper>
     );
 });
 

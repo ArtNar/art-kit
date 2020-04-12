@@ -7,6 +7,6 @@ ListItem:
 <ListItem
     button
 >
-    ListItem
+    List item
 </ListItem>
 ```
