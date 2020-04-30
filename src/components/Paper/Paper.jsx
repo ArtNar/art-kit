@@ -7,7 +7,7 @@ const cn = _cn('paper');
 
 const Paper = React.forwardRef(({
     className,
-    elevation,
+    elevation = 0,
     square,
     fluid,
     padded = true,

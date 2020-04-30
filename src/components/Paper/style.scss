@@ -2,7 +2,10 @@
     background-color: $color-background;
     color: $color-content;
     border-radius: $border-radius;
-    box-shadow: $shadow;
+
+    &_elevation_1 {
+        box-shadow: $shadow;
+    }
 
     &_square {
         border-radius: 0;
