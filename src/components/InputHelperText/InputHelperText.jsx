@@ -10,7 +10,7 @@ const InputHelperText = React.forwardRef(({
     children,
     ...rest
 }, ref) => (
-    <p
+    <span
         {...rest}
         ref={ref}
         className={cn({
@@ -24,7 +24,7 @@ const InputHelperText = React.forwardRef(({
         ) : (
             children
         )}
-    </p>
+    </span>
 ));
 
 InputHelperText.propTypes = {

@@ -1,5 +1,5 @@
 .paper {
-    background-color: $color-background;
+    background-color: $color-control-background;
     color: $color-content;
     border-radius: $border-radius;
 
@@ -20,7 +20,6 @@
     }
 
     &_outlined {
-        background-color: $color-control-background;
         box-shadow: none;
         border: $border-size-s solid;
         border-color: $color-control-border;

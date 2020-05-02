@@ -119,7 +119,7 @@ const MenuList = React.forwardRef(({
             role="menu"
             onKeyDown={handleKeyDown}
             padded={false}
-            outlined
+            elevation={1}
         >
             <List>
                 {children}

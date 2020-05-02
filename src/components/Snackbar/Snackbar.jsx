@@ -105,7 +105,6 @@ const Snackbar = React.forwardRef(({
             type={type}
             ref={ref}
             onClose={handleClose}
-            outlined
         >
             <div>{message}</div>
         </Alert>
