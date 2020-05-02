@@ -51,15 +51,35 @@ import { Spin } from '../Spin';
 
 Icon:
 ```jsx padded
-import { Spin } from '../Spin';
+import { CloseIcon } from '../Icons';
 
 <>
     <Button
         text="with text"
-        icon={<Spin />}
+        icon={<CloseIcon />}
     />
     <Button
-        icon={<Spin />}
+        icon={<CloseIcon />}
     />
+</>
+```
+
+inProgress:
+```jsx
+import { useState } from 'react';
+import { Button } from '../Button'
+
+const [inProgress, setInProgress] = useState(false);
+
+<>
+    <Button
+        onClick={() => {setInProgress(!inProgress)}}
+        inProgress={inProgress}
+        size="l"
+        view="primary"
+        fluid
+    >
+        Toggle progress status
+    </Button>
 </>
 ```

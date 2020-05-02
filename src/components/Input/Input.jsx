@@ -86,7 +86,6 @@ const Input = React.forwardRef(({
                 </InputLabel>
             )}
             <div
-                {...rest}
                 ref={ref}
                 className={cn('inner', {
                     disabled,
@@ -96,6 +95,7 @@ const Input = React.forwardRef(({
                 })}
             >
                 <input
+                    {...rest}
                     className={cn('input', { error: !!error })}
                     id={id}
                     name={name}

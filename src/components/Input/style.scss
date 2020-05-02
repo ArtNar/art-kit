@@ -40,6 +40,7 @@
         color: currentColor;
         outline: 0;
         font-size: $font-size-m;
+        -webkit-autofill::first-line {font-size: 16px};
         width: 100%;
         border: 0;
         margin: 0;

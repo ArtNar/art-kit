@@ -42,3 +42,13 @@ Input - disabled:
     fluid
 />
 ```
+Input - password:
+```jsx
+<Input
+    name="password"
+    type="password"
+    autocomplete="current-password"
+    placeholder="Password"
+    fluid
+/>
+```

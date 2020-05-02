@@ -36,7 +36,7 @@ const Button = forwardRef(({
     onKeyUp,
 }, ref) => {
     const buttonContent = (
-        <span
+        <div
             key="content"
             className={cn('content')}
         >
@@ -56,7 +56,7 @@ const Button = forwardRef(({
                                 { leftAddons }
                             </span>
                         )}
-                        { !inProgress && icon && (
+                        { icon && (
                             <span
                                 key="icon"
                                 className={cn('icon')}
@@ -64,7 +64,7 @@ const Button = forwardRef(({
                                 { icon }
                             </span>
                         ) }
-                        { !inProgress && (children || text) && (
+                        { (children || text) && (
                             <span
                                 key="text"
                                 className={cn('text')}
@@ -72,7 +72,6 @@ const Button = forwardRef(({
                                 { children || text }
                             </span>
                         ) }
-
                         { rightAddons && (
                             <span
                                 key="right-addons"
@@ -82,7 +81,7 @@ const Button = forwardRef(({
                         )}
                     </>
                 )}
-        </span>
+        </div>
     );
 
     const buttonProps = {

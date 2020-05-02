@@ -41,7 +41,8 @@
     &_size_l {
         height: 48px;
         padding: 0 $padding;
-        font-size: $font-size-l;
+        font-size: $font-size-m;
+        font-weight: $font-weight-medium;
     }
 
     &_size_xl {
@@ -106,6 +107,11 @@
     }
 
     &__content {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
         & > *:not(:last-child) {
             padding-right: $padding / 2;
         }
