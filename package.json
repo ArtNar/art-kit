@@ -8,7 +8,8 @@
     "clear": "rm -rf dist",
     "build:demo": "styleguidist build",
     "build": "npm run clear && babel src -d dist && gulp sass",
-    "release": "npm run build && cp package.json ./dist/ && npm publish ./dist",
+    "release": "npm run build && cp package.json ./dist/",
+    "publish": "npm publish ./dist",
     "release-patch": "npm version patch -m 'chore(*): patch version'",
     "release-minor": "npm version minor -m 'chore(*): minor version'",
     "release-major": "npm version major -m 'chore(*): major version'"

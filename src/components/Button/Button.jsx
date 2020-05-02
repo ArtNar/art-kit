@@ -1,4 +1,3 @@
-/* eslint-disable react/button-has-type */
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
@@ -10,6 +9,7 @@ const cn = _cn('button');
 const Button = forwardRef(({
     id,
     name,
+    type = 'button',
     tabIndex,
     disabled,
     className,
@@ -34,6 +34,7 @@ const Button = forwardRef(({
     onMouseOut,
     onKeyDown,
     onKeyUp,
+    ...rest
 }, ref) => {
     const buttonContent = (
         <div
@@ -102,8 +103,11 @@ const Button = forwardRef(({
     };
 
     return (
+        // eslint-disable-next-line react/button-has-type
         <button
+            {...rest}
             ref={ref}
+            type={type}
             className={cx(cn({
                 disabled,
                 view,
@@ -133,6 +137,7 @@ Button.propTypes = {
     inProgress: PropTypes.bool,
     id: PropTypes.string,
     name: PropTypes.string,
+    type: PropTypes.string,
     tabIndex: PropTypes.number,
     children: PropTypes.node,
     className: PropTypes.string,
