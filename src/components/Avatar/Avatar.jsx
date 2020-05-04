@@ -43,6 +43,7 @@ const Avatar = React.forwardRef(({
     className,
     alt,
     sizes,
+    size = 'm',
     src,
     ...rest
 }, ref) => {
@@ -70,7 +71,9 @@ const Avatar = React.forwardRef(({
     return (
         <div
             ref={ref}
-            className={cx(cn(), className)}
+            className={cx(cn({
+                size,
+            }), className)}
             {...rest}
         >
             {children}
@@ -81,6 +84,7 @@ const Avatar = React.forwardRef(({
 Avatar.propTypes = {
     className: PropTypes.string,
     alt: PropTypes.string,
+    size: PropTypes.string,
     sizes: PropTypes.string,
     src: PropTypes.string,
 };

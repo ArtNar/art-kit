@@ -14,8 +14,12 @@
     transition-duration: 200ms;
     transition-property: background-color, border-color, color, width;
     transition-timing-function: ease;
-    border-radius: $border-radius;
-    border: $border-size-s solid;
+
+    border: 0;
+
+    &_outlined {
+        border: $border-size-s solid;
+    }
 
     &_disabled {
         cursor: default;
@@ -96,6 +100,19 @@
         border: 0;
         padding: 0;
         color: $color-control-content-primary;
+    }
+
+    &_shape_circle {
+        border-radius: 50%;
+        padding: 9px;
+
+        &:hover {
+            color: $color-control-content-primary;
+        }
+    }
+
+    &_shape_round {
+        border-radius: $border-radius;
     }
 
     &__left-addons {

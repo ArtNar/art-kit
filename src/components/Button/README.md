@@ -64,6 +64,31 @@ import { CloseIcon } from '../Icons';
 </>
 ```
 
+Shape:
+```jsx padded
+import { CloseIcon } from '../Icons';
+
+<>
+    <Button
+        icon={<CloseIcon />}
+        shape='circle'
+    />
+</>
+```
+
+Outlined:
+```jsx padded
+import { CloseIcon } from '../Icons';
+
+<>
+    <Button
+        icon={<CloseIcon />}
+        outlined={false}
+        shape='circle'
+    />
+</>
+```
+
 inProgress:
 ```jsx
 import { useState } from 'react';

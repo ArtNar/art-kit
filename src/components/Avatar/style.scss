@@ -3,13 +3,36 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
     border-radius: 50%;
     overflow: hidden;
     user-select: none;
     background-color: $color-control-background-primary;
     color: $color-content-on-color;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $color-control-background-primary-hovered;
+    }
+
+    &_size_s {
+        height: 36px;
+        width: 36px;
+    }
+
+    &_size_m {
+        height: 42px;
+        width: 42px;
+    }
+
+    &_size_l {
+        height: 48px;
+        width: 48px;
+    }
+
+    &_size_xl {
+        height: 54px;
+        width: 54px;
+    }
 
     & img {
         width: 100%;

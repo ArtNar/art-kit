@@ -19,9 +19,10 @@ const Button = forwardRef(({
     text,
     icon,
     view,
-    shape,
+    shape = 'round',
     size,
     fluid,
+    outlined = true,
     color,
     inProgress,
     onClick,
@@ -115,6 +116,7 @@ const Button = forwardRef(({
                 size,
                 fluid,
                 color,
+                outlined,
             }), className)}
             {...buttonProps}
         >
@@ -135,6 +137,7 @@ Button.propTypes = {
     fluid: PropTypes.bool,
     disabled: PropTypes.bool,
     inProgress: PropTypes.bool,
+    outlined: PropTypes.bool,
     id: PropTypes.string,
     name: PropTypes.string,
     type: PropTypes.string,

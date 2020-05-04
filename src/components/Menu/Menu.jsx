@@ -54,7 +54,7 @@ const Menu = React.forwardRef(({
 });
 
 Menu.propTypes = {
-    anchorEl: PropTypes.oneOfType([PropTypes.object, PropTypes.func]).isRequired,
+    anchorEl: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
     autoFocus: PropTypes.bool,
     closeAfterTransition: PropTypes.bool,
     children: PropTypes.node,
