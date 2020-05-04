@@ -4,7 +4,11 @@
     border-radius: $border-radius;
 
     &_elevation_1 {
-        box-shadow: $shadow;
+        box-shadow: $shadow1;
+    }
+
+    &_elevation_2 {
+        box-shadow: $shadow2;
     }
 
     &_square {
