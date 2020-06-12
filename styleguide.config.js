@@ -15,4 +15,6 @@ module.exports = {
         return require('react-docgen').parse(source, resolver, handlers);
     },
     skipComponentsWithoutExample: true,
+    title: 'Art-Kit',
+    styleguideDir: 'dist-docs',
 };
