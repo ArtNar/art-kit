@@ -1,18 +1,21 @@
 # Art Kit
+https://art-kit.now.sh/
+Created by [@artem](http://artemnarozhniy.com)
 
-Design by [@artem](http://artemnarozhniy.com)
-
-### npm
+### Install
 ```bash
 npm install --save artn-kit
 ```
-
-### yarn
 ```bash
 yarn add artn-kit
 ```
 
-### theme usage
+### Usage
 ```js
 import { Button } from 'artn-kit/components'
+```
+
+And import style manually:
+```js
+import 'artn-kit/index.css'
 ```
