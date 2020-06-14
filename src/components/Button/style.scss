@@ -1,7 +1,107 @@
+@mixin colorize($outlined, $main, $hover, $active, $shadow, $onlyIcon) {
+    border-color: $main;
+
+    @if $outlined {
+        color: $main;
+    } @else if $onlyIcon {
+        color: $main;
+    } @else {
+        background-color: $main;
+    }
+
+    &:hover {
+        border-color: $hover;
+
+        @if $outlined {
+            color: $hover;
+        } @else if $onlyIcon {
+            color: $hover;
+        } @else {
+            background-color: $hover;
+        }
+    }
+
+    &:active {
+        border-color: $active;
+
+        @if $outlined {
+            color: $active;
+        } @else if $onlyIcon {
+            color: $active;
+        } @else {
+            background-color: $active;
+        }
+    }
+
+    &:focus {
+        @if $onlyIcon {
+
+        } @else {
+            box-shadow: $shadow;
+        }
+    }
+}
+
+@mixin colorize_primary($outlined, $onlyIcon) {
+    @include colorize(
+        $outlined,
+        $color-control-primary,
+        $color-control-primary-hover,
+        $color-control-primary-active,
+        $shadow-control-primary,
+        $onlyIcon
+    );
+}
+
+@mixin colorize_secondary($outlined, $onlyIcon) {
+    @include colorize(
+        $outlined,
+        $color-control-secondary,
+        $color-control-secondary-hover,
+        $color-control-secondary-active,
+        $shadow-control-secondary,
+        $onlyIcon
+    );
+}
+
+@mixin colorize_success($outlined, $onlyIcon) {
+    @include colorize(
+        $outlined,
+        $color-control-success,
+        $color-control-success-hover,
+        $color-control-success-active,
+        $shadow-control-success,
+        $onlyIcon
+    );
+}
+
+@mixin colorize_warning($outlined, $onlyIcon) {
+    @include colorize(
+        $outlined,
+        $color-control-warning,
+        $color-control-warning-hover,
+        $color-control-warning-active,
+        $shadow-control-warning,
+        $onlyIcon
+    );
+}
+
+@mixin colorize_danger($outlined, $onlyIcon) {
+    @include colorize(
+        $outlined,
+        $color-control-danger,
+        $color-control-danger-hover,
+        $color-control-danger-active,
+        $shadow-control-danger,
+        $onlyIcon
+    );
+}
+
 .button {
     position: relative;
     cursor: pointer;
     user-select: none;
+    box-sizing: border-box;
 
     display: inline-flex;
     align-items: center;
@@ -15,10 +115,18 @@
     transition-property: background-color, border-color, color, width;
     transition-timing-function: ease;
 
-    border: 0;
+    border: $border-size-s solid transparent;
+    color: $color-text-on-color;
 
-    &_outlined {
-        border: $border-size-s solid;
+    &__content {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__item:not(:last-child) {
+        padding-right: $padding / 2;
     }
 
     &_disabled {
@@ -31,106 +139,198 @@
     }
 
     &_size_s {
-        height: 36px;
+        height: $control-height-s;
         padding: 0 $padding;
         font-size: $font-size-s;
     }
 
+    &_size_s {
+        &.button_icon {
+            width: $control-height-s;
+        }
+    }
+
     &_size_m {
-        height: 42px;
+        height: $control-height-m;
         padding: 0 $padding;
         font-size: $font-size-m;
     }
 
+    &_size_m {
+        &.button_icon {
+            width: $control-height-m;
+        }
+    }
+
     &_size_l {
-        height: 48px;
-        padding: 0 $padding;
+        height: $control-height-l;
+        padding: 0 $padding * 1.5;
         font-size: $font-size-m;
         font-weight: $font-weight-medium;
     }
 
-    &_size_xl {
-        height: 54px;
-        padding: 0 $padding;
-        font-size: $font-size-xl;
-    }
-
-    &_view_default {
-        background-color: $color-control-background;
-        border-color: $color-control-border;
-        color: $color-control-content;
-
-        &:hover {
-            border-color: $color-control-border-hovered;
+    &_size_l {
+        &.button_icon {
+            width: $control-height-l;
         }
     }
 
-    &_view_primary {
-        background-color: $color-control-background-primary;
-        border-color: transparent;
-        color: $color-control-content-on-color;
-
-        &:hover {
-            background-color: $color-control-background-primary-hovered;
+    &_type_primary {
+        &.button_outlined {
+            @include colorize_primary(
+                true,
+                false
+            );
+        }
+        &.button_only-icon {
+            @include colorize_primary(
+                false,
+                true
+            );
+        }
+        &:not(.button_outlined):not(.button_only-icon) {
+            @include colorize_primary(
+                false,
+                false
+            );
         }
     }
 
-    &_view_danger {
-        background-color: $color-control-background-error;
-        border-color: $color-control-background-error;
-        color: $color-control-content-on-color;
+    &_type_secondary {
+        &.button_outlined {
+            @include colorize_secondary(
+                true,
+                false
+            );
+        }
+        &.button_only-icon {
+            @include colorize_secondary(
+                false,
+                true
+            );
+        }
+        &:not(.button_outlined):not(.button_only-icon) {
+            @include colorize_secondary(
+                false,
+                false
+            );
+        }
 
-        &:hover {
-            background-color: $color-control-background-error-hovered;
+        &.button_outlined,
+        &:not(.button_outlined):not(.button_only-icon) {
+            color: $color-text-tertiary;
+            border-color: $color-text-tertiary;
+
+            &:hover {
+                color: $color-text-tertiary;
+                border-color: $color-text-tertiary;
+            }
+
+            &:active {
+                color: $color-text-tertiary;
+                border-color: $color-text-tertiary;
+            }
         }
     }
 
-    &_view_success {
-        background-color: $color-control-background-success;
-        border-color: $color-control-background-success;
-        color: $color-control-content-on-color;
-
-        &:hover {
-            background-color: $color-control-background-success-hovered;
+    &_type_success {
+        &.button_outlined {
+            @include colorize_success(
+                true,
+                false
+            );
+        }
+        &.button_only-icon {
+            @include colorize_success(
+                false,
+                true
+            );
+        }
+        &:not(.button_outlined):not(.button_only-icon) {
+            @include colorize_success(
+                false,
+                false
+            );
         }
     }
 
-    &_view_link {
+    &_type_warning {
+        &.button_outlined {
+            @include colorize_warning(
+                true,
+                false
+            );
+        }
+        &.button_only-icon {
+            @include colorize_warning(
+                false,
+                true
+            );
+        }
+        &:not(.button_outlined):not(.button_only-icon) {
+            @include colorize_warning(
+                false,
+                false
+            );
+        }
+    }
+
+    &_type_danger {
+        &.button_outlined {
+            @include colorize_danger(
+                true,
+                false
+            );
+        }
+        &.button_only-icon {
+            @include colorize_danger(
+                false,
+                true
+            );
+        }
+        &:not(.button_outlined):not(.button_only-icon) {
+            @include colorize_danger(
+                false,
+                false
+            );
+        }
+    }
+
+    &_type_link {
         height: unset;
         border: 0;
         padding: 0;
-        color: $color-control-content-primary;
+        color: $color-text-primary;
+        background-color: transparent;
+    }
+
+    &_only-icon {
+        &.button_outlined,
+        &:not(.button_outlined) {
+            height: unset;
+            border: 0;
+            padding: 0;
+            background-color: transparent;
+        }
     }
 
     &_shape_circle {
         border-radius: 50%;
-        padding: 9px;
-
-        &:hover {
-            color: $color-control-content-primary;
-        }
+        padding: $padding / 2;
     }
 
     &_shape_round {
         border-radius: $border-radius;
     }
 
-    &__left-addons {
-        padding-right: $padding / 2;
+    &_outlined {
+        background-color: transparent;
     }
 
-    &__right-addons {
-        padding-left: $padding / 2;
-    }
+    &__spin {
+        &:not(.button_outlined) {
+            border-color: $color-text-on-color;
 
-    &__content {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        & > *:not(:last-child) {
-            padding-right: $padding / 2;
         }
     }
 }

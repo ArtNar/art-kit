@@ -4,3 +4,9 @@ $shadow-primary-hovered: lighten($color-control-background-primary, 40%) 0px 0px
 $shadow-success-hovered: lighten($color-control-background-success, 40%) 0px 0px 3px 2px;
 $shadow-error-hovered: lighten($color-control-background-error, 40%) 0px 0px 3px 2px;
 $shadow-warning-hovered: lighten($color-control-background-warning, 40%) 0px 0px 3px 2px;
+
+$shadow-control-primary: 0 0 0 4px $color-indigo-200;
+$shadow-control-secondary: 0 0 0 4px $color-cool-gray-200;
+$shadow-control-success: 0 0 0 4px $color-green-200;
+$shadow-control-warning: 0 0 0 4px $color-orange-200;
+$shadow-control-danger: 0 0 0 4px $color-red-200;

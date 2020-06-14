@@ -1,53 +1,38 @@
 .alert {
-    &_type_success .paper {
-        background-color: $color-control-background-success;
-        color: $color-control-content-on-color;
+    &__content {
+        display: flex;
+        align-items: center;
     }
 
-    &_type_error .paper {
-        background-color: $color-control-background-error;
-        color: $color-control-content-on-color;
+    &__text {
+        flex: 1;
     }
 
-    &_type_warning .paper {
-        background-color: $color-control-background-warning;
-        color: $color-control-content-on-color;
+    &_type_info &__content {
+        background-color: $color-background-info;
+        color: $color-text-primary;
     }
 
-    &__actions {
-        padding-top: $padding;
-        text-align: right;
-
-        & > * {
-            margin-right: $padding / 2;
-
-            &:last-child {
-                margin-right: 0;
-            }
-        }
-
+    &_type_success &__content {
+        background-color: $color-background-success;
+        color: $color-text-success;
     }
 
-    &__action {
-        color: $color-control-content-on-color;
+    &_type_error &__content {
+        background-color: $color-background-error;
+        color: $color-text-error;
     }
 
-    &__action {
-        color: $color-control-content;
-        margin-left: $padding;
-
-        & .button {
-            background-color: transparent;
-            color: inherit;
-        }
+    &_type_warning &__content {
+        background-color: $color-background-warning;
+        color: $color-text-warning;
     }
 
     &__icon {
         margin-right: $padding;
     }
 
-    &__content {
-        display: flex;
-        align-items: center;
+    &__close-button {
+        margin-left: $padding;
     }
 }

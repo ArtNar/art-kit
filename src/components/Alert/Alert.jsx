@@ -4,6 +4,7 @@ import cx from 'classnames';
 import _cn from '../../utils/cn';
 import { Button } from '../Button';
 import { Paper } from '../Paper';
+import { AlertActions } from '../AlertActions';
 import {
     CloseIcon,
     SuccessOutlinedIcon,
@@ -14,6 +15,13 @@ import {
 
 const cn = _cn('alert');
 
+const buttonTypeMapping = {
+    info: 'primary',
+    success: 'success',
+    warning: 'warning',
+    error: 'danger',
+};
+
 const defaultIconMapping = {
     success: <SuccessOutlinedIcon />,
     warning: <ReportProblemOutlinedIcon />,
@@ -22,13 +30,12 @@ const defaultIconMapping = {
 };
 
 const Alert = React.forwardRef(({
-    action,
+    actions,
     className,
     children,
     icon,
     onClose,
     type = 'info',
-    ...rest
 }, ref) => (
     <div
         className={cx(cn({
@@ -37,32 +44,31 @@ const Alert = React.forwardRef(({
     >
         <Paper
             ref={ref}
+            className={cn('content')}
             elevation={1}
-            {...rest}
+            fluid
         >
-            <div className={cn('content')}>
-                {(icon || type) && (
-                    <div className={cn('icon')}>
-                        {icon || defaultIconMapping[type]}
-                    </div>
-                )}
-                <div>{children}</div>
-                {onClose && (
-                    <div className={cn('action')}>
-                        <Button
-                            view="link"
-                            color="white"
-                            onClick={onClose}
-                        >
-                            <CloseIcon fontSize="small" />
-                        </Button>
-                    </div>
-                )}
-            </div>
-            {action && (
-                <div className={cn('actions')}>
-                    {action}
+            {(icon || type) && (
+                <div className={cn('icon')}>
+                    {icon || defaultIconMapping[type]}
                 </div>
+            )}
+            <div className={cn('text')}>{children}</div>
+            {onClose && (
+                <Button
+                    className={cn('close-button')}
+                    type={buttonTypeMapping[type] || 'primary'}
+                    onClick={onClose}
+                    onlyIcon
+                >
+                    <CloseIcon fontSize="small" />
+                </Button>
+            )}
+            {actions && (
+                <AlertActions
+                    actions={actions}
+                    type={buttonTypeMapping[type] || 'primary'}
+                />
             )}
         </Paper>
     </div>
@@ -70,7 +76,7 @@ const Alert = React.forwardRef(({
 
 Alert.propTypes = {
     className: PropTypes.string,
-    action: PropTypes.node,
+    actions: PropTypes.node,
     children: PropTypes.node,
     icon: PropTypes.node,
     onClose: PropTypes.func,

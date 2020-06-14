@@ -1,0 +1,9 @@
+.alert-actions {
+    display: flex;
+    align-items: center;
+    margin-left: $padding;
+
+    &__button:not(:last-child) {
+        margin-right: $padding / 2;
+    }
+}

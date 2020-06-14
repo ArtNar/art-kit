@@ -4,31 +4,53 @@ import { Button } from 'artn-kit/components';
 
 Sizes:
 ```jsx padded
-['s', 'm', 'l', 'xl'].map(size => (
+['s', 'm', 'l'].map(size => (
     <Button
         key={size}
-        text={`button ${size}`}
         size={size}
-    />
+    >
+        {`button ${size}`}
+    </Button>
 ))
 ```
 Colors:
 ```jsx padded
-['default', 'primary', 'success', 'danger'].map(view => (
-    <Button
-        key={view}
-        text={view}
-        view={view}
-    />
-))
+<>
+    <div style={{marginBottom: '10px'}}>
+        {['primary', 'secondary', 'success', 'warning', 'danger'].map(type => (
+            <span style={{marginRight: '10px'}}>
+                <Button
+                    key={type}
+                    type={type}
+                >
+                    {type}
+                </Button>
+            </span>
+        ))}
+    </div>
+    <div>
+        {['primary', 'secondary', 'success', 'warning', 'danger'].map(type => (
+            <span style={{marginRight: '10px'}}>
+                <Button
+                    key={type}
+                    type={type}
+                    outlined
+                >
+                    {type}
+                </Button>
+            </span>
+        ))}
+    </div>
+</>
 ```
 Type "Link":
 ```jsx
 <div>
     <Button
-        text="Link"
-        view='link'
-    />
+        type='link'
+    >
+        link
+    </Button>
 </div>
 
 ```
@@ -39,13 +61,15 @@ import { Spin } from '../Spin';
 
 <>
     <Button
-        text="button"
-        leftAddons={<Spin />}
-    />
+        leftAddons={<Spin color="white" />}
+    >
+        button
+    </Button>
     <Button
-        text="button"
-        rightAddons={<Spin />}
-    />
+        rightAddons={<Spin color="white" />}
+    >
+        button
+    </Button>
 </>
 ```
 
@@ -54,13 +78,23 @@ Icon:
 import { CloseIcon } from '../Icons';
 
 <>
-    <Button
-        text="with text"
-        icon={<CloseIcon />}
-    />
-    <Button
-        icon={<CloseIcon />}
-    />
+    <Button icon>
+        <CloseIcon />
+    </Button>
+    <Button icon outlined >
+        <CloseIcon />
+    </Button>
+</>
+```
+
+onlyIcon:
+```jsx padded
+import { CloseIcon } from '../Icons';
+
+<>
+    <Button onlyIcon>
+        <CloseIcon />
+    </Button>
 </>
 ```
 
@@ -70,22 +104,18 @@ import { CloseIcon } from '../Icons';
 
 <>
     <Button
-        icon={<CloseIcon />}
         shape='circle'
-    />
-</>
-```
-
-Outlined:
-```jsx padded
-import { CloseIcon } from '../Icons';
-
-<>
+        icon
+    >
+        <CloseIcon />
+    </Button>
     <Button
-        icon={<CloseIcon />}
-        outlined={false}
         shape='circle'
-    />
+        outlined
+        icon
+    >
+        <CloseIcon />
+    </Button>
 </>
 ```
 
@@ -101,7 +131,6 @@ const [inProgress, setInProgress] = useState(false);
         onClick={() => {setInProgress(!inProgress)}}
         inProgress={inProgress}
         size="l"
-        view="primary"
         fluid
     >
         Toggle progress status

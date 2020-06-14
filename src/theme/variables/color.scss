@@ -1,12 +1,50 @@
+@import './primitive-colors.scss';
 
-$color-content: #000;
-$color-content-minor: #96a1b5;
-$color-content-on-color: #fff;
-$color-content-on-color-minor: #acadae;
+// text
+$color-text: $color-cool-gray-900;
+$color-text-tertiary: $color-cool-gray-500;
+$color-text-on-color: #FFFFFF;
 
-$color-background: #f7f7f7;
-$color-background-darker: darken($color-background, 5%);
+$color-text-primary: $color-indigo-500;
+$color-text-secondary: $color-cool-gray-400;
+$color-text-success: $color-green-500;
+$color-text-warning: $color-orange-500;
+$color-text-error: $color-red-500;
 
+// background
+$color-background: #F2F2F2;
+$color-background-info: $color-indigo-50;
+$color-background-success: $color-green-50;
+$color-background-warning: $color-orange-50;
+$color-background-error: $color-red-50;
+
+// control background
+$color-control-primary: $color-indigo-500;
+$color-control-primary-hover: $color-indigo-600;
+$color-control-primary-active: $color-indigo-700;
+$color-control-secondary: $color-cool-gray-100;
+$color-control-secondary-hover: $color-cool-gray-200;
+$color-control-secondary-active: $color-cool-gray-300;
+$color-control-success: $color-green-500;
+$color-control-success-hover: $color-green-600;
+$color-control-success-active: $color-green-700;
+$color-control-warning: $color-orange-500;
+$color-control-warning-hover: $color-orange-600;
+$color-control-warning-active: $color-orange-700;
+$color-control-danger: $color-red-500;
+$color-control-danger-hover: $color-red-600;
+$color-control-danger-active: $color-red-700;
+
+// border
+$color-border-primary: $color-indigo-200;
+$color-border-secondary: $color-cool-gray-200;
+$color-border-success: $color-green-200;
+$color-border-warning: $color-orange-200;
+$color-border-danger: $color-red-200;
+
+
+
+// deprecated
 $color-control-content: #000;
 $color-control-content-minor: lighten($color-control-content, 30%);
 $color-control-content-on-color: #fff;
