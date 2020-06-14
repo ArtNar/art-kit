@@ -1,5 +1,5 @@
 # Art Kit
-https://art-kit.now.sh/
+
 Created by [@artem](http://artemnarozhniy.com)
 
 ### Install
