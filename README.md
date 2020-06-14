@@ -1,4 +1,4 @@
-<h1 align="center">Art Kit</h1>
+# Art Kit
 
 Created by [@artem](http://artemnarozhniy.com)
 
