@@ -9,7 +9,7 @@
     "build": "npm run clear && babel src -d dist && gulp sass",
     "build:docs": "styleguidist build",
     "build-now": "npm run build:docs",
-    "release": "npm run build && cp package.json ./dist/",
+    "release": "npm run build && cp package.json README.md ./dist/",
     "release-publish": "npm publish ./dist",
     "release-patch": "npm version patch -m 'chore(*): patch version'",
     "release-minor": "npm version minor -m 'chore(*): minor version'",
