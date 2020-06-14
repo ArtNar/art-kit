@@ -1,10 +1,10 @@
-# Art Kit
+<h1 align="center">Art Kit</h1>
 
 Created by [@artem](http://artemnarozhniy.com)
 
 ### Install
 ```bash
-npm install --save artn-kit
+npm i artn-kit
 ```
 ```bash
 yarn add artn-kit
