@@ -1,3 +1,4 @@
+export { default as CheckedIcon } from './Checked';
 export { default as MailIcon } from './Mail';
 export { default as NotificationsIcon } from './Notifications';
 export { default as NotificationsNoneIcon } from './NotificationsNone';

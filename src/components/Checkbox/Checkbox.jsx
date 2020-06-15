@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import _cn from '../../utils/cn';
 
+import CheckedIcon from '../Icons/Checked';
 import CheckBoxIcon from '../Icons/CheckBox';
 import CheckBoxOutlineBlankIcon from '../Icons/CheckBoxOutlineBlank';
 
@@ -53,19 +54,23 @@ const Checkbox = React.forwardRef(({
                 {...inputProps}
                 {...rest}
             />
-            <span
+            <div
                 key="icon"
-                className={cn('icon')}
+                className={cn('icon', { disabled, checked })}
+            >
+                {checked && <CheckedIcon />}
+            </div>
+            {/* <span
+                key="icon"
+                className={cn('icon', { disabled, checked, size })}
             >
                 {checked ? <CheckBoxIcon /> : <CheckBoxOutlineBlankIcon />}
-            </span>
-            {
-                label && (
-                    <span className={cn('label')}>
-                        {label}
-                    </span>
-                )
-            }
+            </span> */}
+            {label && (
+                <span className={cn('label', { disabled })}>
+                    {label}
+                </span>
+            )}
         </span>
     );
 });
@@ -76,12 +81,10 @@ Checkbox.propTypes = {
     readOnly: PropTypes.bool,
     label: PropTypes.string,
     className: PropTypes.string,
-    color: PropTypes.oneOf(['primary', 'secondary', 'default']),
     id: PropTypes.string,
     inputProps: PropTypes.shape({}),
     onChange: PropTypes.func,
     required: PropTypes.bool,
-    type: PropTypes.string,
     value: PropTypes.string,
 };
 

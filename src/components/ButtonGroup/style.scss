@@ -1,7 +1,7 @@
 .button-group {
     display: inline-flex;
 
-    & > *:not(:last-child){
+    &__item:not(:last-child){
         margin-right: $padding / 2;
     }
 }

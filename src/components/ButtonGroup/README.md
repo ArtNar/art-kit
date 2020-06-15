@@ -7,11 +7,12 @@ ButtonGroup:
 import { Button } from '../Button';
 
 <ButtonGroup>
-    {['primary', 'secondary', 'success', 'warning', 'danger'].map(view => (
+    {[...Array(6).fill('secondary')].map((type, idx) => (
         <Button
-            text={view}
-            view={view}
-        />
+            type={type}
+        >
+            Button {idx + 1}
+        </Button>
     ))}
 </ButtonGroup>
 ```

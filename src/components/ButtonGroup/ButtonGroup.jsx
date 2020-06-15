@@ -25,11 +25,15 @@ const ButtonGroup = React.forwardRef(({
                 return null;
             }
 
-            return React.cloneElement(child, {
-                disabled: child.props.disabled || disabled,
-                type: child.props.type || type,
-                size: child.props.size || size,
-            });
+            return (
+                <div className={cn('item')}>
+                    {React.cloneElement(child, {
+                        disabled: child.props.disabled || disabled,
+                        type: child.props.type || type,
+                        size: child.props.size || size,
+                    })}
+                </div>
+            );
         })}
     </div>
 ));
