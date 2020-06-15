@@ -140,7 +140,7 @@
 
     &_size_s {
         height: $control-height-s;
-        padding: 0 $padding * 1.5;
+        padding: 0 $padding;
         font-size: $font-size-s;
 
         &.button_icon {
@@ -151,7 +151,7 @@
 
     &_size_m {
         height: $control-height-m;
-        padding: 0 $padding * 1.5;
+        padding: 0 $padding * 1.25;
         font-size: $font-size-m;
 
         &.button_icon {
@@ -162,7 +162,7 @@
 
     &_size_l {
         height: $control-height-l;
-        padding: 0 $padding * 2;
+        padding: 0 $padding * 1.5;
         font-size: $font-size-m;
         font-weight: $font-weight-medium;
 
