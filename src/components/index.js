@@ -16,7 +16,7 @@ export * from './AppBar';
 export * from './Avatar';
 export * from './Divider';
 export * from './Icons';
-export * from './Badge';
+export * from './Counter';
 export * from './Switch';
 export * from './Radio';
 export * from './Input';

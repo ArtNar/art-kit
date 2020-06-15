@@ -6,35 +6,26 @@
     border-radius: 50%;
     overflow: hidden;
     user-select: none;
-    background-color: $color-control-background-primary;
-    color: $color-text-on-color;
+    background-color: $color-background-tertiary;
+    color: $color-text-tertiary;
     cursor: pointer;
 
-    &:hover {
-        background-color: $color-control-background-primary-hovered;
-    }
-
     &_size_s {
-        height: 36px;
-        width: 36px;
+        height: $control-height-s;
+        width: $control-height-s;
     }
 
     &_size_m {
-        height: 42px;
-        width: 42px;
+        height: $control-height-m;
+        width: $control-height-m;
     }
 
     &_size_l {
-        height: 48px;
-        width: 48px;
+        height: $control-height-l;
+        width: $control-height-l;
     }
 
-    &_size_xl {
-        height: 54px;
-        width: 54px;
-    }
-
-    & img {
+    &__image {
         width: 100%;
         height: 100%;
         text-align: center;

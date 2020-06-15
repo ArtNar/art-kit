@@ -43,7 +43,7 @@ const Avatar = React.forwardRef(({
     className,
     alt,
     sizes,
-    size = 'm',
+    size = 's',
     src,
     ...rest
 }, ref) => {
@@ -56,6 +56,7 @@ const Avatar = React.forwardRef(({
     if (hasImgNotFailing) {
         children = (
             <img
+                className={cn('image')}
                 alt={alt}
                 src={src}
                 sizes={sizes}
@@ -63,7 +64,7 @@ const Avatar = React.forwardRef(({
         );
     } else if (hasImg && alt) {
         // eslint-disable-next-line prefer-destructuring
-        children = alt[0];
+        children = alt && alt[0];
     } else {
         children = '';
     }

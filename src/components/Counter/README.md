@@ -1,21 +1,21 @@
 ```jsx static
-import { Badge } from 'artn-kit/components';
+import { Counter } from 'artn-kit/components';
 ```
 
-Badge:
+Counter:
 ```jsx
 import { NotificationsIcon } from "../Icons";
 
-<Badge badgeContent={10}>
+<Counter count={10}>
     <NotificationsIcon />
-</Badge>
+</Counter>
 ```
 
-Badge 0:
+Counter 0:
 ```jsx
 import { NotificationsIcon } from "../Icons";
 
-<Badge badgeContent={0}>
+<Counter count={0}>
     <NotificationsIcon />
-</Badge>
+</Counter>
 ```
