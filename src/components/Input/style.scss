@@ -1,7 +1,81 @@
+@mixin colorize($main, $hover, $active, $shadow, $disabled) {
+    border-color: $main;
+
+    .input__icon {
+        color: $main;
+    }
+
+    .input__input {
+        color: $color-text;
+
+        &::placeholder {
+            color: $color-text-secondary;
+        }
+    }
+
+    @if $disabled {
+        background-color: $color-background-normal;
+    } @else {
+        &:hover {
+            border-color: $hover;
+        }
+
+        &:active {
+            border-color: $active;
+        }
+
+        &:focus-within {
+            border-color: $active;
+            box-shadow: $shadow;
+        }
+    }
+}
+
+@mixin colorize_normal($disabled) {
+    @include colorize(
+        $color-border-secondary,
+        $color-input-primary-hover,
+        $color-input-primary-hover,
+        $shadow-input-normal,
+        $disabled
+    );
+}
+
+@mixin colorize_success($disabled) {
+    @include colorize(
+        $color-input-success,
+        $color-input-success-hover,
+        $color-input-success-hover,
+        $shadow-input-success,
+        $disabled
+    );
+}
+
+@mixin colorize_warning($disabled) {
+    @include colorize(
+        $color-input-warning,
+        $color-input-warning-hover,
+        $color-input-warning-hover,
+        $shadow-input-warning,
+        $disabled
+    );
+}
+
+@mixin colorize_danger($disabled) {
+    @include colorize(
+        $color-input-danger,
+        $color-input-danger-hover,
+        $color-input-danger-hover,
+        $shadow-input-danger,
+        $disabled
+    );
+}
+
 .input {
     display: flex;
     flex-direction: column;
     margin-bottom: $padding;
+
 
     &__inner {
         position: relative;
@@ -9,30 +83,50 @@
         align-items: center;
         box-sizing: border-box;
         transition-duration: 200ms;
-        transition-property: border-color, color;
+        transition-property: border-color, color, box-shadow;
         transition-timing-function: ease-in-out;
 
-        border: $border-size-s solid $color-control-border;
         border-radius: $border-radius;
+        border: 1px solid transparent;
 
-        &_focused {
-            border-color: $color-control-border-hovered;
+        &_view_normal {
+            &.input__inner_disabled {
+                @include colorize_normal(true);
+            }
+            &:not(.input__inner_disabled) {
+                @include colorize_normal(false);
+            }
         }
 
-        &_error {
-            border-color: $color-control-background-error;
+        &_view_success {
+            &.input__inner_disabled {
+                @include colorize_success(true);
+            }
+            &:not(.input__inner_disabled) {
+                @include colorize_success(false);
+            }
+        }
 
-            &::placeholder {
-                color: $color-control-background-error;
+        &_view_warning {
+            &.input__inner_disabled {
+                @include colorize_warning(true);
+            }
+            &:not(.input__inner_disabled) {
+                @include colorize_warning(false);
+            }
+        }
+
+        &_view_danger {
+            &.input__inner_disabled {
+                @include colorize_danger(true);
+            }
+            &:not(.input__inner_disabled) {
+                @include colorize_danger(false);
             }
         }
 
         &_fluid {
             width: 100%;
-        }
-
-        &_disabled {
-            opacity: $opacity-disabled;
         }
     }
 
@@ -49,9 +143,9 @@
         background: none;
         box-sizing: content-box;
         border-radius: $border-radius;
+    }
 
-        &_error::placeholder {
-            color: $color-control-background-error;
-        }
+    &__icon {
+        padding: 0 $padding;
     }
 }

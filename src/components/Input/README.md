@@ -4,22 +4,33 @@ import { Input } from 'artn-kit/components';
 
 Input:
 ```jsx
-<Input
-    name="email"
-    type="email"
-    placeholder="Email"
-    fluid
-/>
+['normal', 'success', 'warning', 'danger'].map(view => (
+    <span style={{marginBottom: '10px'}}>
+        <Input
+            name="email"
+            type="email"
+            placeholder="Email"
+            view={view}
+            fluid
+        />
+    </span>
+))
 ```
-Input - with label:
+
+Disabled:
 ```jsx
-<Input
-    name="email"
-    type="email"
-    label="Email"
-    placeholder="Email"
-    fluid
-/>
+['normal', 'success', 'warning', 'danger'].map(view => (
+    <span style={{marginBottom: '10px'}}>
+        <Input
+            name="email"
+            type="email"
+            placeholder="Email"
+            view={view}
+            disabled
+            fluid
+        />
+    </span>
+))
 ```
 
 Input - error:
@@ -32,16 +43,7 @@ Input - error:
     fluid
 />
 ```
-Input - disabled:
-```jsx
-<Input
-    name="email"
-    type="email"
-    placeholder="Email"
-    disabled
-    fluid
-/>
-```
+
 Input - password:
 ```jsx
 <Input

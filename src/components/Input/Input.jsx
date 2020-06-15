@@ -5,7 +5,18 @@ import _cn from '../../utils/cn';
 
 import { InputHelperText } from '../InputHelperText';
 import { InputLabel } from '../InputLabel';
+import {
+    SuccessOutlinedIcon,
+    ReportProblemOutlinedIcon,
+    ErrorOutlineIcon,
+} from '../Icons';
 
+const defaultIconMapping = {
+    success: <SuccessOutlinedIcon />,
+    warning: <ReportProblemOutlinedIcon />,
+    danger: <ErrorOutlineIcon />,
+    normal: null,
+};
 const cn = _cn('input');
 
 const Input = React.forwardRef(({
@@ -27,37 +38,21 @@ const Input = React.forwardRef(({
     onFocus,
     type = 'text',
     value,
+    view = 'normal',
     ...rest
 }, ref) => {
     const inputRef = React.useRef();
-
-    const [focused, setFocused] = React.useState(false);
-
-    // The blur won't fire when the disabled state is set on a focused input.
-    React.useEffect(() => {
-        if (disabled && focused) {
-            setFocused(false);
-
-            if (onBlur) {
-                onBlur();
-            }
-        }
-    }, [disabled, focused, onBlur]);
 
     const handleFocus = (event) => {
         if (onFocus) {
             onFocus(event);
         }
-
-        setFocused(true);
     };
 
     const handleBlur = (event) => {
         if (onBlur) {
             onBlur(event);
         }
-
-        setFocused(false);
     };
 
     const handleChange = (event, ...args) => {
@@ -89,14 +84,13 @@ const Input = React.forwardRef(({
                 ref={ref}
                 className={cn('inner', {
                     disabled,
-                    focused,
                     fluid,
-                    error: !!error,
+                    view: error ? 'danger' : view,
                 })}
             >
                 <input
                     {...rest}
-                    className={cn('input', { error: !!error })}
+                    className={cn('input', { view: error ? 'danger' : view })}
                     id={id}
                     name={name}
                     type={type}
@@ -112,6 +106,13 @@ const Input = React.forwardRef(({
                     onFocus={handleFocus}
                     onClick={handleClick}
                 />
+                {view && defaultIconMapping[view] && (
+                    <div className={cn('icon')}>
+                        {React.cloneElement(defaultIconMapping[view], {
+                            size: 's',
+                        })}
+                    </div>
+                )}
             </div>
             <InputHelperText
                 disabled={disabled}
@@ -145,6 +146,7 @@ Input.propTypes = {
         PropTypes.string,
         PropTypes.instanceOf(Date),
     ]),
+    view: PropTypes.oneOf(['normal', 'danger', 'success', 'warning']),
 };
 
 export default Input;

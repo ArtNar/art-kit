@@ -1,9 +1,9 @@
 .input-helper-text {
     margin-top: $padding / 2;
     font-size: $font-size-s;
-    color: $color-control-content-minor;
+    color: $color-text-secondary;
 
     &_error {
-        color: $color-control-background-error;
+        color: $color-text-error;
     }
 }

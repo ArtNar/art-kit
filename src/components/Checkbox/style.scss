@@ -10,13 +10,13 @@
 
     &:hover:not(.checkbox_disabled) {
         .checkbox__icon {
-            border-color: $color-control-primary;
+            border-color: $color-border-hover;
         }
     }
 
     &:focus:not(.checkbox_disabled) {
         .checkbox__icon {
-            box-shadow: 0px 0px 6px $color-control-primary;
+            box-shadow: $shadow-control-normal;
         }
     }
 
@@ -46,7 +46,7 @@
         }
 
         &_checked {
-            border-color: $color-control-primary;
+            border-color: $color-border-hover;
             background-color: $color-control-primary;
         }
 
