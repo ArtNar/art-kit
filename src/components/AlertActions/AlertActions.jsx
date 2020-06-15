@@ -8,6 +8,7 @@ const cn = _cn('alert-actions');
 const AlertActions = ({
     actions,
     type,
+    size,
 }) => (
     <div className={cn()}>
         {actions && actions.map(({
@@ -20,6 +21,7 @@ const AlertActions = ({
                 key={id}
                 className={cn('button')}
                 type={type}
+                size={size}
                 onClick={onClick}
                 outlined={outlined}
             >
@@ -33,6 +35,7 @@ AlertActions.propTypes = {
     actions: PropTypes.arrayOf(
         PropTypes.shape({}),
     ),
+    size: PropTypes.oneOf(['s', 'm', 'l']),
     type: PropTypes.oneOf([
         'primary',
         'secondary',

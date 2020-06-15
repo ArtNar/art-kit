@@ -58,17 +58,18 @@ Type "Link":
 Addons:
 ```jsx padded
 import { Spin } from '../Spin';
+import { CloseIcon } from '../Icons';
 
 <>
     <Button
-        leftAddons={<Spin color="white" />}
+        leftAddons={<CloseIcon />}
     >
-        button
+        close
     </Button>
     <Button
-        rightAddons={<Spin color="white" />}
+        rightAddons={<CloseIcon />}
     >
-        button
+        close
     </Button>
 </>
 ```

@@ -6,6 +6,18 @@
 
     &__text {
         flex: 1;
+
+        &_size_s {
+            font-size: $font-size-s;
+        }
+
+        &_size_m {
+            font-size: $font-size-m;
+        }
+
+        &_size_l {
+            font-size: $font-size-l;
+        }
     }
 
     &_type_info &__content {

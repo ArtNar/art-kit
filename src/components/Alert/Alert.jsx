@@ -34,6 +34,7 @@ const Alert = React.forwardRef(({
     className,
     children,
     icon,
+    size = 's',
     onClose,
     type = 'info',
 }, ref) => (
@@ -50,23 +51,27 @@ const Alert = React.forwardRef(({
         >
             {(icon || type) && (
                 <div className={cn('icon')}>
-                    {icon || defaultIconMapping[type]}
+                    {React.cloneElement(icon || defaultIconMapping[type], {
+                        size: icon?.props.size || size,
+                    })}
                 </div>
             )}
-            <div className={cn('text')}>{children}</div>
+            <div className={cn('text', { size })}>{children}</div>
             {onClose && (
                 <Button
                     className={cn('close-button')}
                     type={buttonTypeMapping[type] || 'primary'}
                     onClick={onClose}
+                    size={size}
                     onlyIcon
                 >
-                    <CloseIcon fontSize="small" />
+                    <CloseIcon size={size} />
                 </Button>
             )}
             {actions && (
                 <AlertActions
                     actions={actions}
+                    size={size}
                     type={buttonTypeMapping[type] || 'primary'}
                 />
             )}
@@ -80,6 +85,7 @@ Alert.propTypes = {
     children: PropTypes.node,
     icon: PropTypes.node,
     onClose: PropTypes.func,
+    size: PropTypes.oneOf(['s', 'm', 'l']),
     type: PropTypes.oneOf(['error', 'info', 'success', 'warning']),
 };
 

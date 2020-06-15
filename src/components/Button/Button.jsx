@@ -42,7 +42,11 @@ const Button = forwardRef(({
                     key="left-addons"
                     className={cn('item')}
                 >
-                    { leftAddons }
+                    {React.isValidElement(leftAddons)
+                        ? React.cloneElement(leftAddons, {
+                            size: leftAddons.props?.size || size,
+                        })
+                        : leftAddons}
                 </span>
             )}
             { children && (
@@ -50,7 +54,11 @@ const Button = forwardRef(({
                     key="text"
                     className={cn('item')}
                 >
-                    { children }
+                    {React.isValidElement(children)
+                        ? React.cloneElement(children, {
+                            size: children.props?.size || size,
+                        })
+                        : children}
                 </span>
             ) }
             { rightAddons && (
@@ -58,7 +66,11 @@ const Button = forwardRef(({
                     key="right-addons"
                     className={cn('item')}
                 >
-                    { rightAddons }
+                    {React.isValidElement(rightAddons)
+                        ? React.cloneElement(rightAddons, {
+                            size: rightAddons.props?.size || size,
+                        })
+                        : rightAddons}
                 </span>
             )}
         </>

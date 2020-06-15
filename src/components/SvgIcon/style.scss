@@ -3,6 +3,19 @@
     fill: currentColor;
     vertical-align: middle;
     user-select: none;
-    width: 24px;
-    height: 24px;
+
+    &_size_s {
+        height: $font-size-s + 2;
+        width: $font-size-s + 2;
+    }
+
+    &_size_m {
+        height: $font-size-m + 2;
+        width: $font-size-m + 2;
+    }
+
+    &_size_l {
+        height: $font-size-l + 2;
+        width: $font-size-l + 2;
+    }
 }

@@ -7,6 +7,7 @@ const cn = _cn('svg-icon');
 
 const SvgIcon = React.forwardRef(({
     className,
+    size = 'm',
     children,
     htmlColor,
     titleAccess,
@@ -14,7 +15,7 @@ const SvgIcon = React.forwardRef(({
     ...rest
 }, ref) => (
     <svg
-        className={cx(cn(), className)}
+        className={cx(cn({ size }), className)}
         focusable="false"
         viewBox={viewBox}
         color={htmlColor}
@@ -34,6 +35,7 @@ SvgIcon.propTypes = {
     className: PropTypes.string,
     titleAccess: PropTypes.string,
     viewBox: PropTypes.string,
+    size: PropTypes.oneOf(['s', 'm', 'l']),
 };
 
 SvgIcon.muiName = 'SvgIcon';
