@@ -29,6 +29,7 @@ export const MONTH_NAMES_SHORT = [
 ];
 
 export const DAY_NAMES_SHORT = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
+
 export const resetTime = (date) => {
     const nextDate = new Date(date);
 

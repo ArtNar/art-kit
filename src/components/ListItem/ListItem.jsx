@@ -13,7 +13,6 @@ const ListItem = React.forwardRef(({
     selected,
     disabled,
     icon,
-    button,
     ...rest
 }, ref) => (
     <li
@@ -22,7 +21,6 @@ const ListItem = React.forwardRef(({
         className={cx(cn({
             selected,
             disabled,
-            button,
         }), className)}
     >
         <>

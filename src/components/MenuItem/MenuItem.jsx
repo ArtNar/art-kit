@@ -11,6 +11,7 @@ const MenuItem = React.forwardRef(({
     className,
     selected,
     disabled,
+    icon,
     ...rest
 }, ref) => (
     <ListItem
@@ -19,13 +20,14 @@ const MenuItem = React.forwardRef(({
         className={cx(cn(), className)}
         selected={selected}
         disabled={disabled}
-        button
+        icon={icon}
     />
 ));
 
 MenuItem.propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,
+    icon: PropTypes.node,
     disabled: PropTypes.bool,
     role: PropTypes.string,
     selected: PropTypes.bool,

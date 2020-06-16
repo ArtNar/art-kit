@@ -5,13 +5,15 @@ import { List } from 'artn-kit/components';
 List:
 ```jsx
 import { ListItem } from '../ListItem';
+import { HomeIcon } from '../Icons';
 
 <List>
-    {[1, 2, 3].map((_, i) => (
+    {[...Array(3).fill()].map((_, i) => (
         <ListItem
-            button
+            key={i}
+            icon={<HomeIcon />}
         >
-            {`item ${i}`}
+            {`item ${i + 1}`}
         </ListItem>
         )
     )}
@@ -23,11 +25,11 @@ List:
 import { ListItem } from '../ListItem';
 
 <List title='title'>
-    {[1, 2, 3].map((_, i) => (
+    {[...Array(3).fill()].map((_, i) => (
         <ListItem
-            button
+            key={i}
         >
-            {`item ${i}`}
+            {`item ${i + 1}`}
         </ListItem>
         )
     )}

@@ -7,6 +7,8 @@ Menu:
 import { useState } from 'react';
 import { Button } from '../Button';
 import { MenuItem } from '../MenuItem';
+import { MenuList } from '../MenuList';
+import { HomeIcon } from '../Icons';
 
 const [buttonEl, setButtonEl] = useState(null);
 
@@ -22,15 +24,27 @@ const [buttonEl, setButtonEl] = useState(null);
         open={Boolean(buttonEl)}
         onClose={() => setButtonEl(null)}
     >
-        <MenuItem>
-            Menu item 1
-        </MenuItem>
-        <MenuItem>
-            Menu item 2
-        </MenuItem>
-        <MenuItem>
-            Menu item 3
-        </MenuItem>
+        <MenuList title="Group title">
+            {[...Array(3).fill()].map((_, i) => (
+                <MenuItem
+                    key={i}
+                    icon={<HomeIcon />}
+                >
+                    {`Menu item ${i + 1}`}
+                </MenuItem>
+                )
+            )}
+        </MenuList>
+        <MenuList title="Group title">
+            {[...Array(3).fill()].map((_, i) => (
+                <MenuItem
+                    key={i}
+                >
+                    {`Menu item ${i + 1}`}
+                </MenuItem>
+                )
+            )}
+        </MenuList>
     </Menu>
 </>
 

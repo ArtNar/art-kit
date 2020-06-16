@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import _cn from '../../utils/cn';
 
-import { Divider } from '../Divider';
-
 const cn = _cn('list');
 
 const List = React.forwardRef(({
@@ -19,12 +17,9 @@ const List = React.forwardRef(({
         className={cx(cn(), className)}
     >
         {title && (
-            <>
-                <span className={cn('title')}>
-                    {title}
-                </span>
-                <Divider fullWidth />
-            </>
+            <div className={cn('title')}>
+                {title}
+            </div>
         )}
         <ul className={cn('content')}>
             {children}

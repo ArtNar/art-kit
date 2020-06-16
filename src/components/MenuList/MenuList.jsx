@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import _cn from '../../utils/cn';
 
 import { List } from '../List';
-import { Paper } from '../Paper';
 
 function nextItem(list, item, disableListWrap) {
     if (list === item) {
@@ -78,6 +77,7 @@ const MenuList = React.forwardRef(({
     children,
     onKeyDown,
     disableListWrap,
+    title,
 }, ref) => {
     const listRef = ref || React.useRef(null);
 
@@ -113,18 +113,17 @@ const MenuList = React.forwardRef(({
     };
 
     return (
-        <Paper
+        <div
             ref={listRef}
             className={cn()}
             role="menu"
             onKeyDown={handleKeyDown}
-            padded={false}
-            elevation={1}
+            tabIndex={0}
         >
-            <List>
+            <List title={title}>
                 {children}
             </List>
-        </Paper>
+        </div>
     );
 });
 
@@ -132,6 +131,7 @@ MenuList.propTypes = {
     autoFocus: PropTypes.bool,
     children: PropTypes.node,
     disableListWrap: PropTypes.bool,
+    title: PropTypes.string,
     onKeyDown: PropTypes.func,
 };
 

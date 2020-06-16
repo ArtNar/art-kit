@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Popper } from '../Popper';
-import { MenuList } from '../MenuList';
+import { Paper } from '../Paper';
 import { ClickAwayListener } from '../ClickAwayListener';
 
 const Menu = React.forwardRef(({
-    autoFocus = true,
     anchorEl,
     children,
     onClose,
@@ -14,40 +13,27 @@ const Menu = React.forwardRef(({
     closeAfterTransition = true,
     popperOptions = {},
     popperPlacement,
-    ...rest
 }, ref) => {
     const menuRef = ref || React.useRef(null);
-
-    const handleListKeyDown = (event) => {
-        if (event.key === 'Tab') {
-            event.preventDefault();
-
-            if (onClose) {
-                onClose(event, 'tabKeyDown');
-            }
-        }
-    };
 
     const handleClose = () => open && onClose && onClose();
 
     return (
         <ClickAwayListener onClickAway={handleClose}>
             <Popper
-                ref={ref}
+                ref={menuRef}
                 open={open}
                 anchorEl={anchorEl}
                 popperOptions={popperOptions}
                 placement={popperPlacement}
                 closeAfterTransition={closeAfterTransition}
             >
-                <MenuList
-                    {...rest}
-                    ref={menuRef}
-                    autoFocus={autoFocus}
-                    onKeyDown={handleListKeyDown}
+                <Paper
+                    padded={false}
+                    elevation={1}
                 >
                     {children}
-                </MenuList>
+                </Paper>
             </Popper>
         </ClickAwayListener>
     );
@@ -55,7 +41,6 @@ const Menu = React.forwardRef(({
 
 Menu.propTypes = {
     anchorEl: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
-    autoFocus: PropTypes.bool,
     closeAfterTransition: PropTypes.bool,
     children: PropTypes.node,
     popperPlacement: PropTypes.string,

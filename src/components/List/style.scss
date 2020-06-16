@@ -1,6 +1,8 @@
 .list {
     &__title {
-        font-size: $font-size-xl;
+        font-size: $font-size-xs;
+        color: $color-text-tertiary;
+        padding: $padding $padding * 1.5 $padding /2;
     }
 
     &__content {
