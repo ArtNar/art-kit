@@ -19,17 +19,30 @@
     }
 }
 
-$sizes: 'xs', 'sm', 'md', 'lg', 'xl';
+$sizes: ("xs": 544px, "sm": 544px, "md": 768px, "lg": 992px, "xl": 1200px);
 
 @function grid-fluid-width($cols) {
     @return percentage($cols / $base--columns);
 }
 
-@each $size in $sizes {
-    @for $i from 1 through $base--columns {
-        .grid_#{$size}_#{$i} {
-            max-width: grid-fluid-width($i);
-            flex: 0 0 grid-fluid-width($i);
+@each $id, $size in $sizes {
+    @if $id == 'xs' {
+        @media all and (max-width: #{$size}) {
+            @for $i from 1 through $base--columns {
+                .grid_#{$id}_#{$i} {
+                    max-width: grid-fluid-width($i);
+                    flex: 0 0 grid-fluid-width($i);
+                }
+            }
+        }
+    } @else {
+        @media all and (min-width: #{$size}) {
+            @for $i from 1 through $base--columns {
+                .grid_#{$id}_#{$i} {
+                    max-width: grid-fluid-width($i);
+                    flex: 0 0 grid-fluid-width($i);
+                }
+            }
         }
     }
 }

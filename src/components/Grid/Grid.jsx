@@ -23,11 +23,11 @@ const Grid = React.forwardRef(({
         {...rest}
         ref={ref}
         className={cx(cn({
-            lg,
-            md,
-            sm,
-            xl,
             xs,
+            sm,
+            md,
+            lg,
+            xl,
             type,
         }), className)}
     >
