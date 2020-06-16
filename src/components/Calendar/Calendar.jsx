@@ -8,6 +8,14 @@ import _cn from '../../utils/cn';
 
 const cn = _cn('calendar');
 
+const modifiersStyles = {
+    selected: {
+        color: '#fff',
+        backgroundColor: '#6875F5',
+        borderRadius: 8,
+    },
+};
+
 const Calendar = ({
     className,
     onDayClick,
@@ -32,6 +40,7 @@ const Calendar = ({
             className={cx(cn(), className)}
             onDayClick={handleDayClick}
             selectedDays={selectedDays}
+            modifiersStyles={modifiersStyles}
         />
     );
 };

@@ -41,7 +41,6 @@ ListItem.propTypes = {
     component: PropTypes.elementType,
     selected: PropTypes.bool,
     disabled: PropTypes.bool,
-    button: PropTypes.bool,
 };
 
 export default ListItem;

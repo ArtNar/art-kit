@@ -11,9 +11,9 @@ import { Paper } from '../Paper';
 import { ClickAwayListener } from '../ClickAwayListener';
 import { makeMaskDate } from '../DateString';
 
-const cn = _cn('input-date');
+const cn = _cn('select-date');
 
-const InputDate = ({
+const SelectDate = ({
     className,
     disabled,
     required,
@@ -93,7 +93,7 @@ const InputDate = ({
     );
 };
 
-InputDate.propTypes = {
+SelectDate.propTypes = {
     disabled: PropTypes.bool,
     required: PropTypes.bool,
     className: PropTypes.string,
@@ -113,4 +113,4 @@ InputDate.propTypes = {
     mask: PropTypes.string,
 };
 
-export default InputDate;
+export default SelectDate;

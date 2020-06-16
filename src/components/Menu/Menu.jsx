@@ -1,15 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
+import _cn from '../../utils/cn';
 
 import { Popper } from '../Popper';
 import { Paper } from '../Paper';
 import { ClickAwayListener } from '../ClickAwayListener';
 
+const cn = _cn('menu');
+
 const Menu = React.forwardRef(({
     anchorEl,
     children,
+    className,
     onClose,
     open,
+    square,
     closeAfterTransition = true,
     popperOptions = {},
     popperPlacement,
@@ -29,6 +35,9 @@ const Menu = React.forwardRef(({
                 closeAfterTransition={closeAfterTransition}
             >
                 <Paper
+                    className={cx(cn({
+                        square,
+                    }), className)}
                     padded={false}
                     elevation={1}
                 >
@@ -43,9 +52,11 @@ Menu.propTypes = {
     anchorEl: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
     closeAfterTransition: PropTypes.bool,
     children: PropTypes.node,
+    className: PropTypes.string,
     popperPlacement: PropTypes.string,
     onClose: PropTypes.func,
     open: PropTypes.bool.isRequired,
+    square: PropTypes.bool,
     popperOptions: PropTypes.shape({}),
 };
 

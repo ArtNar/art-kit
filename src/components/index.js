@@ -21,7 +21,7 @@ export * from './Switch';
 export * from './Radio';
 export * from './Input';
 export * from './Calendar';
-export * from './InputDate';
+export * from './SelectDate';
 export * from './ButtonGroup';
 export * from './Grid';
 export * from './Typography';

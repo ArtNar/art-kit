@@ -1,14 +1,14 @@
 ```jsx static
-import { InputDate } from 'artn-kit/components';
+import { SelectDate } from 'artn-kit/components';
 ```
 
-InputDate:
+SelectDate:
 ```jsx
 import { useState } from 'react';
 
 const [value, setValue] = useState();
 
-<InputDate
+<SelectDate
     value={value}
     onChange={setValue}
     placeholder="Date"

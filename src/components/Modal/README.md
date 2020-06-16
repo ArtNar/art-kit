@@ -6,6 +6,7 @@ Modal:
 ```jsx
 import { useState } from 'react';
 import { Button } from '../Button';
+import { Paper } from '../Paper';
 
 const [open, setOpen] = useState(false);
 
@@ -20,7 +21,12 @@ const [open, setOpen] = useState(false);
         onRequestClose={() => setOpen(false)}
         center
     >
-        Modal!!!
+        <Paper
+            elevation={2}
+            style={{ padding: '100px' }}
+        >
+            Hello
+        </Paper>
     </Modal>
 </>
 
@@ -55,7 +61,10 @@ import { useModal } from './useModal';
 
 const [open, setOpen] = useState(false);
 const ModalContent = () => (
-    <Paper style={{ padding: '16px' }}>
+    <Paper
+        elevation={2}
+        style={{ padding: '100px' }}
+    >
         Hello
     </Paper>
 )
