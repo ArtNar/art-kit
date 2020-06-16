@@ -1,19 +1,72 @@
 .typography {
     margin: 0;
+    color: $color-text;
 
-    &_gutterBottom {
-        margin-bottom: $padding;
+    &_type_h1 {
+        font-size: 2.625rem;
+        line-height: 3rem;
+        font-weight: 600;
     }
 
-    &_align_right {
-        text-align: right;
+    &_type_h2 {
+        font-size: 2rem;
+        line-height: 2.5rem;
+        font-weight: 600;
     }
 
-    &_align_center {
-        text-align: center;
+    &_type_h3 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        font-weight: 600;
     }
 
-    &_align_left {
-        text-align: left;
+    &_type_h4 {
+        font-size: 1.125rem;
+        line-height: 1.5rem;
+        font-weight: 600;
+    }
+
+    &_type_p1 {
+        font-size: 1.125rem;
+        line-height: 1.5rem;
+    }
+
+    &_type_p2 {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    &_type_p3 {
+        font-size: .875rem;
+        line-height: 1.25rem;
+    }
+
+    &_type_p4 {
+        font-size: .75rem;
+        line-height: 1rem;
+    }
+
+    &_color_primary {
+        color: $color-text-primary;
+    }
+
+    &_color_secondary {
+        color: $color-text-secondary;
+    }
+
+    &_color_tertiary {
+        color: $color-text-tertiary;
+    }
+
+    &_color_success {
+        color: $color-text-success;
+    }
+
+    &_color_warning {
+        color: $color-text-warning;
+    }
+
+    &_color_error {
+        color: $color-text-error;
     }
 }

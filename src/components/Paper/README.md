@@ -2,43 +2,7 @@
 import { Paper } from 'artn-kit/components';
 ```
 
-Fluid (width: 100%):
-```jsx
-<Paper
-    fluid={true}
->
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco
-    laboris nisi ut aliquip ex ea commodo consequat.
-</Paper>
-```
-
-Square:
-```jsx
-<Paper
-    square={true}
->
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco
-    laboris nisi ut aliquip ex ea commodo consequat.
-</Paper>
-```
-
-outlined:
-```jsx
-<Paper
-    outlined={true}
->
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco
-    laboris nisi ut aliquip ex ea commodo consequat.
-</Paper>
-```
-
-elevation:
+Elevation:
 ```jsx
 <>
     <Paper
@@ -54,5 +18,29 @@ elevation:
         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     </Paper>
+    <br/>
+    <Paper
+        elevation={3}
+    >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </Paper>
+    <br/>
+    <Paper
+        elevation={4}
+    >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </Paper>
 </>
+```
+
+Outlined:
+```jsx
+<Paper
+    outlined={true}
+>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+</Paper>
 ```

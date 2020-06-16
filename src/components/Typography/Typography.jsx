@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import _cn from '../../utils/cn';
@@ -10,33 +10,26 @@ const defaultVariantMapping = {
     h2: 'h2',
     h3: 'h3',
     h4: 'h4',
-    h5: 'h5',
-    h6: 'h6',
-    subtitle: 'h6',
-    body: 'p',
+    p1: 'p1',
+    p2: 'p2',
+    p3: 'p3',
+    p4: 'p4',
 };
 
 const Typography = React.forwardRef(({
     className,
-    align,
     color,
-    component,
-    display,
-    gutterBottom,
     paragraph,
-    variant = 'body',
+    type = 'p2',
     ...rest
 }, ref) => {
-    const Component = component || defaultVariantMapping[variant];
+    const Component = defaultVariantMapping[type];
 
     return (
         <Component
             className={cx(cn({
-                align,
-                display,
                 color,
-                gutterBottom,
-                paragraph,
+                type,
             }), className)}
             ref={ref}
             {...rest}
@@ -45,31 +38,26 @@ const Typography = React.forwardRef(({
 });
 
 Typography.propTypes = {
-    align: PropTypes.oneOf(['inherit', 'left', 'center', 'right', 'justify']),
     children: PropTypes.node,
     color: PropTypes.oneOf([
-        'initial',
-        'inherit',
         'primary',
         'secondary',
-        'textPrimary',
-        'textSecondary',
+        'tertiary',
+        'success',
+        'warning',
         'error',
     ]),
     className: PropTypes.string,
-    component: PropTypes.elementType,
-    display: PropTypes.oneOf(['initial', 'block', 'inline']),
-    gutterBottom: PropTypes.bool,
     paragraph: PropTypes.bool,
-    variant: PropTypes.oneOf([
+    type: PropTypes.oneOf([
         'h1',
         'h2',
         'h3',
         'h4',
-        'h5',
-        'h6',
-        'subtitle',
-        'body',
+        'p1',
+        'p2',
+        'p3',
+        'p4',
     ]),
 };
 
