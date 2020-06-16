@@ -1,4 +1,6 @@
 .list {
+    outline: none;
+
     &__title {
         font-size: $font-size-xs;
         color: $color-text-tertiary;
