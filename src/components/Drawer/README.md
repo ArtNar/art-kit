@@ -24,28 +24,3 @@ const [open, setOpen] = useState(false);
 </>
 
 ```
-
-Drawer down:
-```jsx
-import { useState } from 'react';
-import { Button } from '../Button';
-
-const [open, setOpen] = useState(false);
-
-<>
-    <Button
-        onClick={() => setOpen(!open)}
-    >
-        Show drawer down
-    </Button>
-    <Drawer
-        anchor='top'
-        size={50}
-        open={open}
-        onRequestClose={() => setOpen(false)}
-    >
-        Drawer!!!
-    </Drawer>
-</>
-
-```

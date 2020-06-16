@@ -38,7 +38,7 @@ const Input = React.forwardRef(({
     onFocus,
     type = 'text',
     value,
-    view = 'normal',
+    view: viewProp = 'normal',
     ...rest
 }, ref) => {
     const inputRef = React.useRef();
@@ -71,6 +71,8 @@ const Input = React.forwardRef(({
         }
     };
 
+    const view = error ? 'danger' : viewProp;
+
     return (
         <div className={cx(cn(), className)}>
             {label && (
@@ -85,12 +87,12 @@ const Input = React.forwardRef(({
                 className={cn('inner', {
                     disabled,
                     fluid,
-                    view: error ? 'danger' : view,
+                    view,
                 })}
             >
                 <input
                     {...rest}
-                    className={cn('input', { view: error ? 'danger' : view })}
+                    className={cn('input', { view })}
                     id={id}
                     name={name}
                     type={type}

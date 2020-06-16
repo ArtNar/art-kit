@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import _cn from '../../utils/cn';
+import { resetTime } from '../../utils/date';
 
 import { Input } from '../Input';
 import { Calendar } from '../Calendar';
 import { Popper } from '../Popper';
+import { Paper } from '../Paper';
 import { ClickAwayListener } from '../ClickAwayListener';
+import { makeMaskDate } from '../DateString';
 
 const cn = _cn('input-date');
 
@@ -27,6 +30,7 @@ const InputDate = ({
     placeholder,
     value,
     type = 'text',
+    mask = 'dd.mm.yyyy',
 }) => {
     const [inputEl, setInputEl] = useState();
 
@@ -44,11 +48,13 @@ const InputDate = ({
 
     const handleChange = (date) => {
         if (onChange) {
-            onChange(date);
+            onChange(resetTime(date));
         }
 
         handleCloseCalendar();
     };
+
+    const dateString = useMemo(() => makeMaskDate(mask)(value), [value, mask]);
 
     return (
         <div className={cx(cn(), className)}>
@@ -65,7 +71,7 @@ const InputDate = ({
                 onFocus={onFocus}
                 placeholder={placeholder}
                 type={type}
-                value={value}
+                value={dateString || ''}
                 readOnly
             />
             <ClickAwayListener onClickAway={handleCloseCalendar}>
@@ -75,10 +81,12 @@ const InputDate = ({
                     open={Boolean(inputEl)}
                     onClose={handleCloseCalendar}
                 >
-                    <Calendar
-                        onDayClick={handleChange}
-                        initialDate={value}
-                    />
+                    <Paper elevation={1} padded={false}>
+                        <Calendar
+                            onDayClick={handleChange}
+                            initialDate={value}
+                        />
+                    </Paper>
                 </Popper>
             </ClickAwayListener>
         </div>
@@ -102,6 +110,7 @@ InputDate.propTypes = {
     placement: PropTypes.string,
     value: PropTypes.instanceOf(Date),
     type: PropTypes.string,
+    mask: PropTypes.string,
 };
 
 export default InputDate;
