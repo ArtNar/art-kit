@@ -17,6 +17,7 @@ const Grid = React.forwardRef(({
     xl,
     padded,
     type,
+    center,
     ...rest
 }, ref) => (
     <div
@@ -29,6 +30,7 @@ const Grid = React.forwardRef(({
             lg,
             xl,
             type,
+            center,
         }), className)}
     >
         {children}
@@ -39,6 +41,7 @@ Grid.propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,
     padded: PropTypes.bool,
+    center: PropTypes.bool,
     type: PropTypes.oneOf(['container', 'column']),
     lg: PropTypes.oneOf(types),
     md: PropTypes.oneOf(types),
