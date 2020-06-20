@@ -7,9 +7,9 @@ ButtonGroup:
 import { Button } from '../Button';
 
 <ButtonGroup>
-    {[...Array(6).fill('secondary')].map((type, idx) => (
+    {[...Array(6).fill('secondary')].map((color, idx) => (
         <Button
-            type={type}
+            color={color}
         >
             Button {idx + 1}
         </Button>

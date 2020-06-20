@@ -60,7 +60,7 @@ const Alert = React.forwardRef(({
             {onClose && (
                 <Button
                     className={cn('close-button')}
-                    type={buttonTypeMapping[type] || 'primary'}
+                    color={buttonTypeMapping[type] || 'primary'}
                     onClick={onClose}
                     size={size}
                     onlyIcon

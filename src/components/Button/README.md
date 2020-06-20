@@ -17,26 +17,26 @@ Colors:
 ```jsx padded
 <>
     <div style={{marginBottom: '10px'}}>
-        {['primary', 'secondary', 'success', 'warning', 'danger'].map(type => (
+        {['primary', 'secondary', 'success', 'warning', 'danger'].map(color => (
             <span style={{marginRight: '10px'}}>
                 <Button
-                    key={type}
-                    type={type}
+                    key={color}
+                    color={color}
                 >
-                    {type}
+                    {color}
                 </Button>
             </span>
         ))}
     </div>
     <div>
-        {['primary', 'secondary', 'success', 'warning', 'danger'].map(type => (
+        {['primary', 'secondary', 'success', 'warning', 'danger'].map(color => (
             <span style={{marginRight: '10px'}}>
                 <Button
-                    key={type}
-                    type={type}
+                    key={color}
+                    color={color}
                     outlined
                 >
-                    {type}
+                    {color}
                 </Button>
             </span>
         ))}
@@ -47,7 +47,7 @@ Type "Link":
 ```jsx
 <div>
     <Button
-        type='link'
+        color='link'
     >
         link
     </Button>

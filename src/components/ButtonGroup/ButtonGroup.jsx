@@ -8,7 +8,7 @@ const cn = _cn('button-group');
 const ButtonGroup = React.forwardRef(({
     children,
     className,
-    type,
+    color,
     disabled,
     fluid,
     size,
@@ -29,7 +29,7 @@ const ButtonGroup = React.forwardRef(({
                 <div className={cn('item')}>
                     {React.cloneElement(child, {
                         disabled: child.props.disabled || disabled,
-                        type: child.props.type || type,
+                        color: child.props.color || color,
                         size: child.props.size || size,
                     })}
                 </div>
@@ -41,7 +41,7 @@ const ButtonGroup = React.forwardRef(({
 ButtonGroup.propTypes = {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
-    type: PropTypes.oneOf([
+    color: PropTypes.oneOf([
         'primary',
         'secondary',
         'success',

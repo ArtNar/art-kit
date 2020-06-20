@@ -20,7 +20,7 @@ const AlertActions = ({
             <Button
                 key={id}
                 className={cn('button')}
-                type={type}
+                color={type}
                 size={size}
                 onClick={onClick}
                 outlined={outlined}

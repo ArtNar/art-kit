@@ -172,7 +172,7 @@
         }
     }
 
-    &_type_primary {
+    &_color_primary {
         &.button_outlined {
             @include colorize_primary(
                 true,
@@ -193,7 +193,7 @@
         }
     }
 
-    &_type_secondary {
+    &_color_secondary {
         &.button_outlined {
             @include colorize_secondary(
                 true,
@@ -230,7 +230,7 @@
         }
     }
 
-    &_type_success {
+    &_color_success {
         &.button_outlined {
             @include colorize_success(
                 true,
@@ -251,7 +251,7 @@
         }
     }
 
-    &_type_warning {
+    &_color_warning {
         &.button_outlined {
             @include colorize_warning(
                 true,
@@ -272,7 +272,7 @@
         }
     }
 
-    &_type_danger {
+    &_color_danger {
         &.button_outlined {
             @include colorize_danger(
                 true,
@@ -293,7 +293,7 @@
         }
     }
 
-    &_type_link {
+    &_color_link {
         height: unset;
         border: 0;
         padding: 0;

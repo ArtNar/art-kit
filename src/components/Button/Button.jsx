@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
@@ -16,7 +17,8 @@ const Button = forwardRef(({
     children,
     icon,
     onlyIcon,
-    type,
+    color,
+    type = 'button',
     shape,
     size,
     fluid,
@@ -97,10 +99,10 @@ const Button = forwardRef(({
         <button
             {...rest}
             ref={ref}
-            type="button"
+            type={type}
             className={cx(cn({
                 disabled,
-                type,
+                color,
                 shape,
                 size,
                 fluid,
@@ -132,7 +134,7 @@ Button.propTypes = {
     onlyIcon: PropTypes.bool,
     rightAddons: PropTypes.node,
     leftAddons: PropTypes.node,
-    type: PropTypes.oneOf([
+    color: PropTypes.oneOf([
         'primary',
         'secondary',
         'success',
@@ -148,6 +150,7 @@ Button.propTypes = {
     outlined: PropTypes.bool,
     id: PropTypes.string,
     name: PropTypes.string,
+    type: PropTypes.string,
     tabIndex: PropTypes.number,
     children: PropTypes.node,
     className: PropTypes.string,
@@ -166,7 +169,7 @@ Button.propTypes = {
 Button.defaultProps = {
     shape: 'round',
     size: 's',
-    type: 'primary',
+    color: 'primary',
 };
 
 export default Button;

@@ -29,7 +29,7 @@ const Counter = React.forwardRef(({
         >
             <Button
                 shape="circle"
-                type={count ? 'danger' : 'primary'}
+                color={count ? 'danger' : 'primary'}
                 icon
             >
                 {content}
