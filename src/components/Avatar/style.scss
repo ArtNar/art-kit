@@ -6,8 +6,8 @@
     border-radius: 50%;
     overflow: hidden;
     user-select: none;
-    background-color: $color-background-tertiary;
-    color: $color-text-tertiary;
+    background-color: $color-control-primary;
+    color: $color-text-on-color;
     cursor: pointer;
 
     &_size_s {
