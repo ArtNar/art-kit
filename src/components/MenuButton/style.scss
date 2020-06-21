@@ -1,0 +1,39 @@
+.menu-button {
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    box-sizing: border-box;
+    color: $color-text-tertiary;
+
+    &:hover {
+        border-color: $color-border-hover;
+    }
+
+    &__label {
+        display: inline-flex;
+    }
+
+    &__arrow {
+        position: relative;
+        height: 100%;
+        margin-left: $padding / 2;
+
+        &::after {
+            position: absolute;
+            top: 20%;
+            content: "";
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-top: 1px solid $color-text-tertiary;
+            border-right: 1px solid $color-text-tertiary;
+            transform: rotate(135deg);
+        }
+
+        &_open {
+            &::after {
+                transform: translateY(50%) rotate(315deg);
+            }
+        }
+    }
+}

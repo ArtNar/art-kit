@@ -5,6 +5,7 @@ import _cn from '../../utils/cn';
 
 import { Popper } from '../Popper';
 import { Paper } from '../Paper';
+import { MenuButton } from '../MenuButton';
 import { ClickAwayListener } from '../ClickAwayListener';
 
 const cn = _cn('menu');
@@ -19,32 +20,44 @@ const Menu = React.forwardRef(({
     closeAfterTransition = true,
     popperOptions = {},
     popperPlacement,
+    label,
+    onClick,
 }, ref) => {
     const menuRef = ref || React.useRef(null);
 
     const handleClose = () => open && onClose && onClose();
 
     return (
-        <ClickAwayListener onClickAway={handleClose}>
-            <Popper
-                ref={menuRef}
-                open={open}
-                anchorEl={anchorEl}
-                popperOptions={popperOptions}
-                placement={popperPlacement}
-                closeAfterTransition={closeAfterTransition}
-            >
-                <Paper
-                    className={cx(cn({
-                        square,
-                    }), className)}
-                    padded={false}
-                    elevation={1}
+        <>
+            {label && onClick && (
+                <MenuButton
+                    open={open}
+                    onClick={onClick}
                 >
-                    {children}
-                </Paper>
-            </Popper>
-        </ClickAwayListener>
+                    {label}
+                </MenuButton>
+            )}
+            <ClickAwayListener onClickAway={handleClose}>
+                <Popper
+                    ref={menuRef}
+                    open={open}
+                    anchorEl={anchorEl}
+                    popperOptions={popperOptions}
+                    placement={popperPlacement}
+                    closeAfterTransition={closeAfterTransition}
+                >
+                    <Paper
+                        className={cx(cn({
+                            square,
+                        }), className)}
+                        padded={false}
+                        elevation={1}
+                    >
+                        {children}
+                    </Paper>
+                </Popper>
+            </ClickAwayListener>
+        </>
     );
 });
 
@@ -53,7 +66,9 @@ Menu.propTypes = {
     closeAfterTransition: PropTypes.bool,
     children: PropTypes.node,
     className: PropTypes.string,
+    label: PropTypes.string,
     popperPlacement: PropTypes.string,
+    onClick: PropTypes.func,
     onClose: PropTypes.func,
     open: PropTypes.bool.isRequired,
     square: PropTypes.bool,
