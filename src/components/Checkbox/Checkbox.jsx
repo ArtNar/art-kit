@@ -8,7 +8,6 @@ import CheckedIcon from '../Icons/Checked';
 const cn = _cn('checkbox');
 
 const Checkbox = React.forwardRef(({
-    checked: checkedProp = '',
     className,
     disabled,
     readOnly,
@@ -16,14 +15,14 @@ const Checkbox = React.forwardRef(({
     id,
     label,
     onChange,
-    value = '',
+    value = false,
     inputProps,
     padded,
     ...rest
 }, ref) => {
     const checkBoxRef = ref || useRef(null);
 
-    const [checked, setChecked] = useState(checkedProp);
+    const [checked, setChecked] = useState(value);
 
     const handleInputChange = (event) => {
         const newChecked = event.target.checked;
@@ -70,14 +69,14 @@ Checkbox.propTypes = {
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
     readOnly: PropTypes.bool,
-    label: PropTypes.string,
+    label: PropTypes.node,
     className: PropTypes.string,
     id: PropTypes.string,
     inputProps: PropTypes.shape({}),
     onChange: PropTypes.func,
     required: PropTypes.bool,
     padded: PropTypes.bool,
-    value: PropTypes.string,
+    value: PropTypes.bool,
 };
 
 export default Checkbox;

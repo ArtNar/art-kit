@@ -19,14 +19,14 @@ Checkbox:
     <div style={{ paddingBottom: 10 }}>
         <Checkbox
             label="Checkbox checked"
-            checked
+            value={true}
         />
     </div>
     <div style={{ paddingBottom: 10 }}>
         <Checkbox
             label="Checkbox checked and disabled"
             disabled
-            checked
+            value={true}
         />
     </div>
 </>
