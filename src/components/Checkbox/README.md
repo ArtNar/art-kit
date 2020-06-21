@@ -29,5 +29,11 @@ Checkbox:
             value={true}
         />
     </div>
+    <div style={{ paddingBottom: 10 }}>
+        <Checkbox
+            label="Checkbox"
+            error="Checkbox must be checked!"
+        />
+    </div>
 </>
 ```

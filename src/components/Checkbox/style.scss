@@ -1,10 +1,17 @@
 .checkbox {
     width: fit-content;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    flex-direction: column;
     outline: none;
     box-sizing: border-box;
+
+    &__content {
+        width: fit-content;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        outline: none;
+    }
 
     &:hover:not(.checkbox_disabled) {
         .checkbox__icon {

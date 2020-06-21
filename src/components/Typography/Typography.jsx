@@ -10,10 +10,10 @@ const defaultVariantMapping = {
     h2: 'h2',
     h3: 'h3',
     h4: 'h4',
-    p1: 'p1',
-    p2: 'p2',
-    p3: 'p3',
-    p4: 'p4',
+    p1: 'p',
+    p2: 'p',
+    p3: 'p',
+    p4: 'p',
 };
 
 const Typography = React.forwardRef(({

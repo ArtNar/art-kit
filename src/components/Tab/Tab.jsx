@@ -11,21 +11,25 @@ const Tab = React.forwardRef(({
     selected,
     disabled,
     onClick,
-}, ref) => (
-    <div
-        ref={ref}
-        className={cx(cn({
-            selected,
-            disabled,
-        }), className)}
-        onClick={!disabled && onClick}
-        onKeyPress={!disabled && onClick}
-        role="button"
-        tabIndex={0}
-    >
-        {children}
-    </div>
-));
+}, ref) => {
+    const handleClick = (e) => !disabled && onClick && onClick(e);
+
+    return (
+        <div
+            ref={ref}
+            className={cx(cn({
+                selected,
+                disabled,
+            }), className)}
+            onClick={handleClick}
+            onKeyPress={handleClick}
+            role="button"
+            tabIndex={0}
+        >
+            {children}
+        </div>
+    );
+});
 
 Tab.propTypes = {
     className: PropTypes.string,
