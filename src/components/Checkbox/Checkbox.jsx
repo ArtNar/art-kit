@@ -4,8 +4,6 @@ import cx from 'classnames';
 import _cn from '../../utils/cn';
 
 import CheckedIcon from '../Icons/Checked';
-import CheckBoxIcon from '../Icons/CheckBox';
-import CheckBoxOutlineBlankIcon from '../Icons/CheckBoxOutlineBlank';
 
 const cn = _cn('checkbox');
 
@@ -20,6 +18,7 @@ const Checkbox = React.forwardRef(({
     onChange,
     value = '',
     inputProps,
+    padded,
     ...rest
 }, ref) => {
     const checkBoxRef = ref || useRef(null);
@@ -37,35 +36,27 @@ const Checkbox = React.forwardRef(({
     };
 
     return (
-        <span
-            className={cx(cn({ disabled }), className)}
-        >
-            <input
-                className={cn('input')}
-                checked={checked}
-                disabled={disabled}
-                id={id}
-                onChange={handleInputChange}
-                readOnly={readOnly}
-                ref={checkBoxRef}
-                required={required}
-                type="checkbox"
-                value={value}
-                {...inputProps}
-                {...rest}
-            />
+        <span className={cx(cn({ disabled, padded }), className)}>
             <div
                 key="icon"
                 className={cn('icon', { disabled, checked })}
             >
+                <input
+                    className={cn('input')}
+                    checked={checked}
+                    disabled={disabled}
+                    id={id}
+                    onChange={handleInputChange}
+                    readOnly={readOnly}
+                    ref={checkBoxRef}
+                    required={required}
+                    type="checkbox"
+                    value={value}
+                    {...inputProps}
+                    {...rest}
+                />
                 {checked && <CheckedIcon />}
             </div>
-            {/* <span
-                key="icon"
-                className={cn('icon', { disabled, checked, size })}
-            >
-                {checked ? <CheckBoxIcon /> : <CheckBoxOutlineBlankIcon />}
-            </span> */}
             {label && (
                 <span className={cn('label', { disabled })}>
                     {label}
@@ -85,6 +76,7 @@ Checkbox.propTypes = {
     inputProps: PropTypes.shape({}),
     onChange: PropTypes.func,
     required: PropTypes.bool,
+    padded: PropTypes.bool,
     value: PropTypes.string,
 };
 
