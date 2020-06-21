@@ -20,6 +20,14 @@ Typography:
 <Typography type='p3'>p3. Typography</Typography>
 <br/>
 <Typography type='p4'>p4. Typography</Typography>
+<br/>
+<Typography type='s1'>s1. Typography</Typography>
+<br/>
+<Typography type='s2'>s2. Typography</Typography>
+<br/>
+<Typography type='s3'>s3. Typography</Typography>
+<br/>
+<Typography type='s4'>s4. Typography</Typography>
 
 ```
 

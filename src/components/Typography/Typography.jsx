@@ -14,6 +14,10 @@ const defaultVariantMapping = {
     p2: 'p',
     p3: 'p',
     p4: 'p',
+    s1: 'span',
+    s2: 'span',
+    s3: 'span',
+    s4: 'span',
 };
 
 const Typography = React.forwardRef(({
@@ -58,6 +62,10 @@ Typography.propTypes = {
         'p2',
         'p3',
         'p4',
+        's1',
+        's2',
+        's3',
+        's4',
     ]),
 };
 

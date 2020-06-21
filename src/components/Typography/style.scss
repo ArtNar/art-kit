@@ -26,22 +26,26 @@
         font-weight: 600;
     }
 
-    &_type_p1 {
+    &_type_p1,
+    &_type_s1 {
         font-size: 1.125rem;
         line-height: 1.5rem;
     }
 
-    &_type_p2 {
+    &_type_p2,
+    &_type_s2 {
         font-size: 1rem;
         line-height: 1.5rem;
     }
 
-    &_type_p3 {
+    &_type_p3,
+    &_type_s3 {
         font-size: .875rem;
         line-height: 1.25rem;
     }
 
-    &_type_p4 {
+    &_type_p4,
+    &_type_s4 {
         font-size: .75rem;
         line-height: 1rem;
     }
