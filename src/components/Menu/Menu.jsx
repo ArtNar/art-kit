@@ -66,7 +66,7 @@ Menu.propTypes = {
     closeAfterTransition: PropTypes.bool,
     children: PropTypes.node,
     className: PropTypes.string,
-    label: PropTypes.string,
+    label: PropTypes.node,
     popperPlacement: PropTypes.string,
     onClick: PropTypes.func,
     onClose: PropTypes.func,
