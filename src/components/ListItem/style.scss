@@ -7,7 +7,7 @@
     box-sizing: border-box;
     padding: $padding $padding * 1.5;
     text-decoration: none;
-    color: $color-text;
+    color: $color-text-tertiary;
     cursor: pointer;
 
     &_disabled {
@@ -17,6 +17,7 @@
     &:hover:not(.list-item_disabled),
     &_selected {
         background-color: $color-background-info;
+        color: $color-text-primary;
     }
 
     &__text {
