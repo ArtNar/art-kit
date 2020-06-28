@@ -105,6 +105,22 @@ import { CloseIcon } from '../Icons';
 </>
 ```
 
+```jsx padded
+import { MenuIcon } from '../Icons';
+
+<>
+    <Button onlyIcon color="tertiary">
+        <MenuIcon />
+    </Button>
+    <Button onlyIcon color="tertiary" size='m'>
+        <MenuIcon />
+    </Button>
+    <Button onlyIcon color="tertiary" size='l'>
+        <MenuIcon />
+    </Button>
+</>
+```
+
 Shape:
 ```jsx padded
 import { CloseIcon } from '../Icons';
