@@ -23,7 +23,7 @@
     }
 
     &_padded {
-        padding: $padding;
+        padding: $padding * 1.5;
     }
 
     &_fluid {

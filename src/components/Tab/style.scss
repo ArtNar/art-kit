@@ -5,13 +5,16 @@
     justify-content: center;
     align-items: center;
     font-weight: 500;
-    font-size: $font-size-l;
-    line-height: 28px;
+    font-size: $font-size-m;
+    line-height: 24px;
     color: $color-text-tertiary;
     border-bottom: 2px solid transparent;
     box-sizing: border-box;
-    padding: $padding / 2 $padding;
     user-select: none;
+
+    &:not(:last-child) {
+        margin-right: $padding;
+    }
 
     &:hover:not(.tab_disabled) {
         color: $color-control-primary;
