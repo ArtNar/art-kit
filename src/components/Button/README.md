@@ -93,7 +93,13 @@ onlyIcon:
 import { CloseIcon } from '../Icons';
 
 <>
-    <Button onlyIcon>
+    <Button onlyIcon color="tertiary">
+        <CloseIcon />
+    </Button>
+    <Button onlyIcon color="tertiary" size='m'>
+        <CloseIcon />
+    </Button>
+    <Button onlyIcon color="tertiary" size='l'>
         <CloseIcon />
     </Button>
 </>

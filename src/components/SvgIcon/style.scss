@@ -5,17 +5,17 @@
     user-select: none;
 
     &_size_s {
-        height: $font-size-s + 2;
-        width: $font-size-s + 2;
+        height: $icon-size-s;
+        width: $icon-size-s;
     }
 
     &_size_m {
-        height: $font-size-m + 2;
-        width: $font-size-m + 2;
+        height: $icon-size-m;
+        width: $icon-size-m;
     }
 
     &_size_l {
-        height: $font-size-l + 2;
-        width: $font-size-l + 2;
+        height: $icon-size-l;
+        width: $icon-size-l;
     }
 }

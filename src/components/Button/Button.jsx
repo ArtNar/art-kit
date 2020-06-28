@@ -137,6 +137,7 @@ Button.propTypes = {
     color: PropTypes.oneOf([
         'primary',
         'secondary',
+        'tertiary',
         'success',
         'warning',
         'danger',

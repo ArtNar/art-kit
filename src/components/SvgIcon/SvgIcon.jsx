@@ -7,7 +7,7 @@ const cn = _cn('svg-icon');
 
 const SvgIcon = React.forwardRef(({
     className,
-    size = 'm',
+    size = 's',
     children,
     htmlColor,
     titleAccess,

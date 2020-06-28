@@ -78,6 +78,7 @@ const Drawer = React.forwardRef(({
                             style={styles}
                         >
                             <Paper
+                                padded={false}
                                 square
                                 fluid
                             >

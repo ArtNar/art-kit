@@ -64,6 +64,17 @@
     );
 }
 
+@mixin colorize_tertiary($outlined, $onlyIcon) {
+    @include colorize(
+        $outlined,
+        $color-control-tertiary,
+        $color-control-tertiary-hover,
+        $color-control-tertiary-active,
+        $shadow-control-tertiary,
+        $onlyIcon
+    );
+}
+
 @mixin colorize_success($outlined, $onlyIcon) {
     @include colorize(
         $outlined,
@@ -245,6 +256,27 @@
         }
         &:not(.button_outlined):not(.button_only-icon) {
             @include colorize_success(
+                false,
+                false
+            );
+        }
+    }
+
+    &_color_tertiary {
+        &.button_outlined {
+            @include colorize_tertiary(
+                true,
+                false
+            );
+        }
+        &.button_only-icon {
+            @include colorize_tertiary(
+                false,
+                true
+            );
+        }
+        &:not(.button_outlined):not(.button_only-icon) {
+            @include colorize_tertiary(
                 false,
                 false
             );
