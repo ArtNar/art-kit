@@ -74,7 +74,7 @@ const Input = React.forwardRef(({
     const view = error ? 'danger' : viewProp;
 
     return (
-        <div className={cx(cn(), className)}>
+        <div className={cx(cn({ fluid }), className)}>
             {label && (
                 <InputLabel
                     htmlFor={id}
