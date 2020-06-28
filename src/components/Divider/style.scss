@@ -1,8 +1,8 @@
 .divider {
     height: 1px;
-    margin: $padding;
+    margin: 0;
     border: none;
-    background-color: $color-border-minor;
+    background-color: $color-border-secondary;
 
     &_fullWidth {
         margin: $padding 0;
